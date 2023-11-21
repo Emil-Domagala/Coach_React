@@ -1,0 +1,45 @@
+@use '../../../_colors.css';
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  width: 72px;
+  height: 88px;
+  border: none;
+  background: transparent;
+  z-index: 1000;
+}
+
+.bar-top,
+.bar-center,
+.bar-bottom {
+  position: relative;
+  display: block;
+  height: 3px;
+  width: 36px;
+  background-color: var(--nav-button);
+  transform-origin: left;
+  transition: all ease-in 0.2s ;
+}
+.bar-top {
+  top: -8px;
+}
+.bar-bottom {
+  top: 8px;
+}
+
+.active{
+    .bar-top{
+        transform: rotate(45deg) translateX(-1.5px) translateY(-1px);
+    }
+    .bar-bottom{
+        transform: rotate(-45deg) translateX(-1.5px) translateY(1px);
+    }
+    .bar-center{
+        transform: scaleX(0);
+    }
+}

@@ -1,0 +1,83 @@
+@use '../../../_colors.css';
+
+.current {
+  border-bottom: var(--text) solid 2px;
+}
+
+.toggle-mode {
+  margin-right: 2cqw;
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 72px;
+  background-color: var(--navigation);
+  z-index: 1000;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo {
+  position: relative;
+  height: 70px;
+  img {
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+}
+
+
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  color: var(--text);
+  a{
+    text-decoration: none;
+    color: var(--text);
+  }
+  &__link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+  &__link:hover{
+    background-color: var(--navigation-hover);
+  }
+}
+
+
+@media (min-width:992px){
+    .toggle-mode {
+  margin-right: 40px;
+}
+    .nav-list{
+        &__link{
+            padding: 0 25px;
+        }
+    }
+}

@@ -1,0 +1,76 @@
+@use '../../../_colors.css';
+
+.reasons {
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  .reason {
+    padding: 3rem 5rem;
+    color: var(--main-color);
+    background-color: var(--background);
+
+    h3 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 2rem;
+    }
+
+    .img {
+      width: 55px;
+      height: 55px;
+      margin-bottom: 0.5rem;
+      margin-left: 1rem;
+      svg {
+        height: 100%;
+      }
+    }
+  }
+  .reason:first-child {
+    .img {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--main-color);
+      border-radius: 10px;
+      svg {
+        color: var(--background);
+        height: 70%;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+.reasons{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    .reason{
+        width: 50%;
+        h3{
+            font-size: 2rem;
+        }
+            p {
+      font-size: 1.6rem;
+    }
+
+    }
+}
+}
+
+@media (min-width: 992px) {
+.reasons{
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    margin-left: 498px;
+    padding: 0 1rem;
+    .reason{
+        padding: 2rem 2rem;
+        width: 50%;
+    }
+}
+}

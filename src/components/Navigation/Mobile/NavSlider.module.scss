@@ -1,0 +1,66 @@
+@use '../../../_colors.css';
+.toggle_mode {
+  position: absolute;
+  top: 42px;
+  right: 40px;
+}
+
+.slider {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 40vw;
+  min-width: 215px;
+  background-color: var(--navigation);
+  transform-origin: left;
+  transform: translateX(-60vw);
+  opacity: 0;
+  transition: transform 0.6s, opacity 0.6s;
+  z-index: 999;
+}
+
+.slider-list {
+  margin-top: 150px;
+  color: var(--text);
+  list-style: none;
+  &__link {
+    letter-spacing: 0.5px;
+    padding: 10px 25px;
+    transform: rotateY(-90deg);
+    transform-origin: left;
+    transition: transform 0s 0.4s ease-in;
+  }
+}
+
+.current::before {
+  content: '';
+  position: absolute;
+  top: 25%;
+  left: 15px;
+  width: 2px;
+  height: 50%;
+  background-color: var(--text);
+}
+
+.active {
+  transform: translateX(0);
+  opacity: 1;
+  .slider-list__link {
+    transform: rotateY(0deg);
+  }
+  .slider-list__link:nth-child(1) {
+    transition: transform 0.4s 0.3s ease-in;
+  }
+  .slider-list__link:nth-child(2) {
+    transition: transform 0.4s 0.5s ease-in;
+  }
+  .slider-list__link:nth-child(3) {
+    transition: transform 0.4s 0.7s ease-in;
+  }
+  .slider-list__link:nth-child(4) {
+    transition: transform 0.4s 0.9s ease-in;
+  }
+  .slider-list__link:nth-child(5) {
+    transition: transform 0.4s 1.1s ease-in;
+  }
+}

@@ -1,0 +1,29 @@
+@use '../../_colors.css';
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  height: 5.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 5rem;
+  border: none;
+  cursor: pointer;
+}
+
+.gold {
+  background-image: var(--btn-gold);
+  color: var(--white);
+  transition: all 4s;
+}
+.gold:hover {
+  background-image: var(--btn-gold-hover);
+}
