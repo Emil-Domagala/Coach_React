@@ -1,11 +1,15 @@
 @use '../../../_colors.css';
 
+// section{
+//     padding: 0 0;
+// }
+
 .reasons {
   display: flex;
   flex-direction: column;
   margin: 2rem auto;
   .reason {
-    padding: 3rem 5rem;
+    padding: 3rem 2rem;
     color: var(--main-color);
     background-color: var(--background);
 
@@ -67,10 +71,14 @@
     flex-wrap: nowrap;
     justify-content: center;
     margin-left: 498px;
-    padding: 0 1rem;
+    padding: 0 1.5rem;
     .reason{
-        padding: 2rem 2rem;
-        width: 50%;
+        padding: 2rem 1rem;
+        width: 30%;
+        &:last-child{
+          width: 40%;
+          // background-color: aqua;
+        }
     }
 }
 }

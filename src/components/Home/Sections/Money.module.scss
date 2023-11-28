@@ -1,0 +1,81 @@
+@use '../../../_colors.css';
+
+
+#money{
+  margin-bottom: 2rem;
+}
+
+.top-text {
+  margin-bottom: 4rem;
+  color: var(--main-color);
+  text-align: center;
+}
+
+.steps {
+  margin-bottom: 4rem;
+  &__column {
+    .step {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 2rem;
+      margin: 4rem 0;
+
+      p {
+        min-width: none;
+        text-align: start;
+        color: var(--main-color);
+        span {
+          font-weight: 700;
+        }
+      }
+      .icon-bgc {
+        min-width: 90px;
+        max-width: 90px;
+        min-height: 90px;
+        max-height: 90px;
+        margin-right: 3rem;
+        border-radius: 15px;
+        background-color: var(--light-gold);
+      }
+    }
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 400px){
+// .steps{
+//     display: flex;
+
+// }
+    .btn{
+        width: 220px;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 768px) {
+  .top-text {
+    margin-bottom: 5rem;
+  }
+  .steps {
+    display: flex;
+    gap: 4rem;
+    flex-direction: row;
+    padding: 0 3rem;
+      &__column {
+
+
+    .step {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: calc(100% / 3);
+      padding: 0 1rem 4rem 1rem;
+      margin: 0rem 0;
+    }}
+  }
+}
