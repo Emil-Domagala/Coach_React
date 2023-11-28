@@ -1,0 +1,75 @@
+@use '../../../_colors.css';
+
+#what-you-get {
+  background-color: var(--background-light);
+  padding: 0 0rem;
+}
+.what-you-get {
+  padding: 90px 4rem 0px 4rem;
+  .left {
+    h2 {
+      text-align: left;
+    }
+    p {
+      color: var(--main-color);
+      margin-bottom: 4rem;
+    }
+    .button {
+      width: 100%;
+    }
+  }
+}
+
+.triangle-top,
+.triangle-bottom {
+  background-color: var(--background);
+  width: 100vw;
+  height: 130px;
+}
+
+.triangle-top {
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.triangle-bottom {
+  clip-path: polygon(0 100%, 100% 0, 100% 100%);
+}
+
+@media (min-width: 400px) {
+  .what-you-get {
+    .left {
+      .button {
+        max-width: 220px;
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .what-you-get {
+    display: flex;
+    flex-direction: row;
+    padding: 60px 4rem 0px 4rem;
+  }
+  .left {
+    width: 55%;
+  }
+  .right {
+    position: absolute;
+    right: 0;
+    .photo {
+      height: 525px;
+      width: 400px;
+      background-image: url('../../../../public/whatYouGet.jpeg');
+      background-size: cover;
+      background-position: 35% 30%;
+    }
+    .photo__triangle {
+      position: absolute;
+      height: 30px;
+      width: 100%;
+      background-color: var(--background-light);
+      clip-path: polygon(0 0, 100% 100%, 100% 0);
+    }
+  }
+}
