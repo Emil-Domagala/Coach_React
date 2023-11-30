@@ -4,7 +4,7 @@
   background-color: var(--background-light);
   padding: 0 0rem;
 }
-.what-you-get {
+.what-you-get-class {
   padding: 90px 4rem 0px 4rem;
   .left {
     h2 {
@@ -13,9 +13,10 @@
     p {
       color: var(--main-color);
       margin-bottom: 4rem;
-    }
-    .button {
-      width: 100%;
+      line-height: 140%;
+      span{
+        font-weight: 700;
+      }
     }
   }
 }
@@ -35,18 +36,9 @@
   clip-path: polygon(0 100%, 100% 0, 100% 100%);
 }
 
-@media (min-width: 400px) {
-  .what-you-get {
-    .left {
-      .button {
-        max-width: 220px;
-      }
-    }
-  }
-}
 
 @media (min-width: 1200px) {
-  .what-you-get {
+  .what-you-get-class {
     display: flex;
     flex-direction: row;
     padding: 60px 4rem 0px 4rem;
@@ -58,7 +50,7 @@
     position: absolute;
     right: 0;
     .photo {
-      height: 525px;
+      height: 545px;
       width: 400px;
       background-image: url('../../../../public/whatYouGet.jpeg');
       background-size: cover;

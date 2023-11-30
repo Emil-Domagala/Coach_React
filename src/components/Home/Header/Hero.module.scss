@@ -38,22 +38,11 @@
     color: var(--white);
     margin-bottom: 3rem;
   }
-  .button {
-    // max-width: 220px;
-    width: 100%;
-  }
   .bottom-text {
     display: none;
   }
 }
 
-@media (min-width: 400px) {
-  .hero__text-container {
-    .button {
-      max-width: 220px;
-    }
-  }
-}
 
 @media (min-width: 768px) {
   .hero {

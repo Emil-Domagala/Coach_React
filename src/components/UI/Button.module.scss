@@ -1,11 +1,23 @@
 @use '../../_colors.css';
 
-a {
+@property --gradient-one {
+  syntax: '<color>';
+  initial-value: #b0864b;
+  inherits: false;
+}
+@property --gradient-two {
+  syntax: '<color>';
+  initial-value: #e4c87d;
+  inherits: false;
+}
+
+.link {
   text-decoration: none;
 }
 
 .button {
   display: block;
+  position: relative;
   width: 100%;
   height: 5.5rem;
   font-size: 1.6rem;
@@ -19,11 +31,33 @@ a {
   cursor: pointer;
 }
 
+
+
 .gold {
-  background-image: var(--btn-gold);
+  background: linear-gradient(90deg, var(--gradient-one), var(--gradient-two));
   color: var(--white);
-  transition: all 4s;
+  transition: --gradient-one 0.4s, --gradient-two 0.4s;
 }
 .gold:hover {
-  background-image: var(--btn-gold-hover);
+  --gradient-one: #906429;
+  --gradient-two: #c2a65b;
+}
+
+.white {
+  background-color: var(--btn-white);
+  color: var(--gold);
+  transition: background-color 0.4s;
+}
+.white:hover {
+  background-color: var(--btn-white-hover);
+}
+
+@media (min-width: 400px) {
+  .center {
+    margin: auto;
+    width: 220px;
+  }
+  .left{
+    width: 220px;
+  }
 }

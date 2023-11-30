@@ -3,7 +3,7 @@ import classes from './Money.module.scss';
 
 const Money = () => {
   return (
-    <section id={classes.money}>
+    <section id={`${classes.money} money`}>
       <div className="container">
         <h2 className="section-title ">
           Your Coach Will Help You <span>Execute a 6-Step Growth Plan</span>
@@ -75,11 +75,9 @@ const Money = () => {
             </div>
           </div>
         </div>
-        <div className={classes.btn}>
-          <Button mode="gold" to="/coach">
+          <Button mode="gold" to="/coach" location="center">
             Find your Coach
           </Button>
-        </div>
       </div>
     </section>
   );
