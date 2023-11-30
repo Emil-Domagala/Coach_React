@@ -1,9 +1,5 @@
 @use '../../../_colors.css';
 
-// section{
-//     padding: 0 0;
-// }
-
 .reasons {
   display: flex;
   flex-direction: column;
@@ -48,37 +44,35 @@
 }
 
 @media (min-width: 768px) {
-.reasons{
+  .reasons {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    .reason{
-        width: 50%;
-        h3{
-            font-size: 2rem;
-        }
-            p {
-      font-size: 1.6rem;
+    .reason {
+      width: 50%;
+      h3 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.6rem;
+      }
     }
-
-    }
-}
+  }
 }
 
 @media (min-width: 992px) {
-.reasons{
+  .reasons {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
     margin-left: 498px;
     padding: 0 1.5rem;
-    .reason{
-        padding: 2rem 1rem;
-        width: 30%;
-        &:last-child{
-          width: 40%;
-          // background-color: aqua;
-        }
+    .reason {
+      padding: 2rem 1rem;
+      width: 30%;
+      &:last-child {
+        width: 40%;
+      }
     }
-}
+  }
 }

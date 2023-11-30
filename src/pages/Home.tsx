@@ -1,5 +1,4 @@
 import Hero from '../components/Home/Header/Hero';
-import Some from '../components/Home/Header/Some';
 import JoinUs from '../components/Home/Sections/JoinUs';
 import Money from '../components/Home/Sections/Money';
 import Reasons from '../components/Home/Sections/Reasons';
@@ -15,7 +14,6 @@ const HomePage = () => {
       <WhatYouGet />
       <WithCoach />
       <JoinUs />
-      <Some />
     </>
   );
 };

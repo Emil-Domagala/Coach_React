@@ -4,12 +4,14 @@
   --hero-left: #141a34f2;
   --white: #fff;
   --black: #000;
+  --dark-gray: #131936;
   --gold: #d4b165;
-  --light-gold:#e4c87d;
-  --btn-gold: linear-gradient(90deg, #b0864b, #e4c87d);
-  --btn-gold-hover: linear-gradient(90deg, #906429, #c2a65b);
+  --light-gold: #e4c87d;
+  --gradient-gold: linear-gradient(90deg, #b0864b, #e4c87d);
+  --btn-white: #fff;
+  --btn-white-hover: #eee;
   --background: #fff;
-  --background-light:#faf9fc;
+  --background-light: #faf9fc;
   --navigation: #eee;
   --navigation-hover: #dcdcdc;
   --nav-button: #000;
@@ -18,9 +20,8 @@
 [data-theme='dark'] {
   --main-color: #fff;
   --background: #242424;
-  --background-light:#353535;
+  --background-light: #353535;
   --navigation: #111111;
   --navigation-hover: #242424;
   --nav-button: #fff;
-
 }

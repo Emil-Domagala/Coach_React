@@ -12,7 +12,7 @@ import Bitcoin from '../../../icons/Bitcoin';
 
 const Reasons = () => {
   return (
-    <section>
+    <section id='reasons'>
       <div className={classes.reasons}>
         <div className={classes.reason}>
           <div className={classes.img}>

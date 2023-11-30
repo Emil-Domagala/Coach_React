@@ -1,0 +1,59 @@
+@use '../../../_colors.css';
+
+#with-coach {
+  margin-bottom: 9rem;
+    h2 {
+    display: inline-block;
+  }
+}
+
+.reasons {
+  display: flex;
+  flex-direction: column;
+  margin: 2.5rem 0 5rem 0;
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-width: 275px;
+    max-width: 275px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    color: var(--main-color);
+    .circle {
+      min-width: 20px;
+      min-height: 20px;
+      max-width: 20px;
+      max-height: 20px;
+      border-radius: 50%;
+      margin-right: 30px;
+      background-color: var(--main-color);
+    }
+    p {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+}
+
+
+
+@media (min-width: 600px) {
+  .reasons {
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .reason {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+    }
+  }
+}
+@media (min-width: 1000px) {
+  .reasons {
+    .reason {
+      width: calc(100% / 3);
+    }
+  }
+}

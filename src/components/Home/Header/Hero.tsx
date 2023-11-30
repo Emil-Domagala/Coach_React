@@ -14,11 +14,11 @@ const Hero = () => {
             Work less, make more, and spend more time doing the things you truly
             love – in your business and in your life.
           </p>
-          <div className={classes.button}>
-            <Button mode="gold" to="/coach">
-              Find your coach
-            </Button>
-          </div>
+
+          <Button mode="gold" to="/coach" location="left">
+            Find your coach
+          </Button>
+
           <p className={classes['bottom-text']}>
             Most business owners are living with constant stress and overwhelm.
             That's not sustainable. Our business coaches help you work smarter
