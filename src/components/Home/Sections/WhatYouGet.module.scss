@@ -14,7 +14,7 @@
       color: var(--main-color);
       margin-bottom: 4rem;
       line-height: 140%;
-      span{
+      span {
         font-weight: 700;
       }
     }
@@ -36,7 +36,6 @@
   clip-path: polygon(0 100%, 100% 0, 100% 100%);
 }
 
-
 @media (min-width: 1200px) {
   .what-you-get-class {
     display: flex;
@@ -50,18 +49,12 @@
     position: absolute;
     right: 0;
     .photo {
-      height: 545px;
-      width: 400px;
-      background-image: url('../../../../public/whatYouGet.jpeg');
+      position: relative;
+      top: -35px;
+      height: 615px;
+      width: 450px;
+      background-image: url('../../../../public/mba-section-image.png');
       background-size: cover;
-      background-position: 35% 30%;
-    }
-    .photo__triangle {
-      position: absolute;
-      height: 30px;
-      width: 100%;
-      background-color: var(--background-light);
-      clip-path: polygon(0 0, 100% 100%, 100% 0);
     }
   }
 }

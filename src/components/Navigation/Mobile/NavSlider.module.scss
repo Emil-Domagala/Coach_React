@@ -11,7 +11,7 @@
   height: 100vh;
   width: 40vw;
   min-width: 215px;
-  background-color: var(--navigation);
+  background-color: var(--dark-blue-hover);
   transform-origin: left;
   transform: translateX(-60vw);
   opacity: 0;
@@ -21,7 +21,7 @@
 
 .slider-list {
   margin-top: 150px;
-  color: var(--main-color);
+  color: var(--white);
   list-style: none;
   &__link {
     letter-spacing: 0.5px;
@@ -39,7 +39,7 @@
   left: 15px;
   width: 2px;
   height: 50%;
-  background-color: var(--main-color);
+  background-color: var(--white);
 }
 
 .active {
