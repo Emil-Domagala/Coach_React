@@ -5,10 +5,13 @@
   // top: 72px;
   height: 600px;
   width: 100vw;
-  background-image: url(../../../../public/header_small.jpeg);
-  background-position: 90% 50%;
+  background-image: url(../../../../public/hac-header-image_big.jpg);
+  background-position: 50% 40%;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.white-triangle{
+  display: none;
 }
 
 .hero__text-container {
@@ -62,8 +65,8 @@
 
 @media (min-width: 992px) {
   .hero {
-    background-image: url(../../../../public/header_big.jpeg);
-    background-position: 90% 0%;
+    background-image: url(../../../../public/hac-header-image_big.jpg);
+
   }
   .hero__text-container {
     min-height: 80rem;
@@ -79,6 +82,7 @@
     }
   }
   .white-triangle {
+    display: block;
     position: absolute;
     bottom: 0;
     height: 130px;
@@ -95,7 +99,6 @@
       width: 80%;
       background: linear-gradient(90deg, #b0864b, #e4c87d);
       clip-path: polygon(0 0, 100% 100%, 100% 0);
-      // transform: rotate(28deg) ;
     }
   }
 }

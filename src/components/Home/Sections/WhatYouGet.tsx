@@ -24,7 +24,6 @@ const WhatYouGet = () => {
               </Button>
           </div>
           <div className={classes.right}>
-            <div className={classes['photo__triangle']} />
             <div className={classes.photo}></div>
           </div>
         </div>

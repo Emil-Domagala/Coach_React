@@ -3,7 +3,7 @@ import Button from '../../UI/Button';
 
 const Hero = () => {
   return (
-    <header>
+    <header id='header'>
       <div className={classes.hero}>
         <div className={classes['hero__bgc']}></div>
         <div className={classes['hero__text-container']}>
