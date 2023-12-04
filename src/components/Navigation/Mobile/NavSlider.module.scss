@@ -23,6 +23,10 @@
   margin-top: 150px;
   color: var(--white);
   list-style: none;
+  a{
+    text-decoration: none;
+    color: var(--white);
+  }
   &__link {
     letter-spacing: 0.5px;
     padding: 10px 25px;

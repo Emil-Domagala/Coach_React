@@ -1,0 +1,87 @@
+@use '../../_colors.css';
+
+.nav {
+  height: 50px;
+  width: 100vw;
+  background-color: var(--navigation);
+  box-shadow: 0px 1px 3px 1px var(--navigation-hover);
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 3rem;
+  }
+
+  .logo {
+    position: relative;
+    top: 25px;
+    left: 3rem;
+  }
+}
+
+.main {
+  height: calc(100vh - 50px);
+  background-color: var(--background-light);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 100px 3rem 0 3rem;
+  h4 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-align: center;
+    color: var(--main-color);
+    margin-bottom: 4rem;
+  }
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    label {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--light-gray);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+    input {
+      height: 52px;
+      border: 1px solid var(--navigation-hover);
+      border-radius: 5px;
+      background-color: var(--navigation);
+      color: var(--light-gray);
+      padding: 0 1rem;
+      font-size: 1.6rem;
+      outline: none;
+    }
+  }
+  .button {
+    height: 40px;
+    margin: 2rem 0 1rem 0;
+    background-color: var(--light-green);
+    // background-color: var(--light-green-hover);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: var(--light-green-hover);
+    }
+  }
+  .change-mode{
+    text-decoration: none;
+    padding: 1rem;
+    font-size: 1.4rem;
+    color:var(--light-blue);
+    text-align: center;
+    cursor: pointer;
+    &:hover{
+      color: var(--light-blue-hover);
+    }
+  }
+}

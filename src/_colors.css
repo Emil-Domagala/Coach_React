@@ -2,11 +2,12 @@
   --main-color: #2d3354;
   --main-color-semitransparent: #02091acc;
   --hero-left: #141a34f2;
-  --dark-blue:#2d3354;
-  --dark-blue-hover:#1e2243;
+  --dark-blue: #2d3354;
+  --dark-blue-hover: #1e2243;
   --white: #fff;
   --black: #000;
   --dark-gray: #131936;
+  --light-gray: #999;
   --gold: #d4b165;
   --light-gold: #e4c87d;
   --gradient-gold: linear-gradient(90deg, #b0864b, #e4c87d);
@@ -17,6 +18,10 @@
   --navigation: #eee;
   --navigation-hover: #dcdcdc;
   --nav-button: #000;
+  --light-green: #1acb97;
+  --light-green-hover: #09ba86;
+  --light-blue: #3cb9ff;
+  --light-blue-hover: #1779ba;
 }
 
 [data-theme='dark'] {
