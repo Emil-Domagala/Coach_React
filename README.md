@@ -1,3 +1,6 @@
+This app is still in developing. There will be option to create an account, login, becoming a coach and sending messages to coach that we will pick. Data will be stored in firebase. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
