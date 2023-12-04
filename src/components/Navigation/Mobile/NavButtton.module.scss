@@ -41,6 +41,11 @@
 }
 
 .active {
+  .bar-top,
+  .bar-center,
+  .bar-bottom {
+    background-color: var(--white);
+  }
   .bar-top {
     transform: rotate(45deg) translateX(-1.5px) translateY(-1px);
   }

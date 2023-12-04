@@ -35,7 +35,7 @@ const NavBar = () => {
               <Link to="/messages">
                 <li className={classes['nav-list__link']}>Messages</li>
               </Link>
-              <Link to="/login">
+              <Link to="/auth">
                 <li className={classes['nav-list__link']}>Login</li>
               </Link>
             </ul>

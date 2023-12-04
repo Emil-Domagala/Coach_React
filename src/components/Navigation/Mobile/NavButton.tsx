@@ -1,16 +1,26 @@
 import classes from './NavButtton.module.scss';
+import { useEffect, useState } from 'react';
 
 const NavButton = (props: { isActive: boolean; onClick: () => void }) => {
-  const header = document.querySelector('#header');
+  const [isWhite, setIsWhite] = useState(false);
+
+  useEffect(() => {
+    isOnHeader();
+  }, []);
+
   const isOnHeader = () => {
-    // const isHeader = window.scrollY;
-    const headerOffset = header?.getBoundingClientRect();
-    console.log(headerOffset);
-    console.log(window.scrollY)
-    // if (isHeader === header.offsetTop) {
-    //   console.log('first');
-    // }
+    const isHeader = window.scrollY;
+    const header = document.querySelector('#header');
+    if (!header) {
+      return;
+    }
+    if (isHeader < 550) {
+      setIsWhite(true);
+    } else {
+      setIsWhite(false);
+    }
   };
+
   window.addEventListener('scroll', isOnHeader);
   return (
     <button
@@ -19,7 +29,7 @@ const NavButton = (props: { isActive: boolean; onClick: () => void }) => {
       }`}
       onClick={props.onClick}
     >
-      <div className={`${classes.bars} ${props.isActive ? classes.white : ''}`}>
+      <div className={`${classes.bars} ${isWhite ? classes.white : ''} `}>
         <span className={classes['bar-top']} />
         <span className={classes['bar-center']} />
         <span className={classes['bar-bottom']} />
