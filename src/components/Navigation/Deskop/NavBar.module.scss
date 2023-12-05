@@ -1,5 +1,9 @@
 @use '../../../_colors.css';
 
+.blank-space {
+  height: 72px;
+}
+
 .current {
   border-bottom: var(--white) solid 2px;
 }
@@ -46,15 +50,13 @@
   height: 100%;
 }
 
-
-
 .nav-list {
   list-style: none;
   display: flex;
   flex-direction: row;
   height: 100%;
   color: var(--white);
-  a{
+  a {
     text-decoration: none;
     color: var(--white);
   }
@@ -65,19 +67,18 @@
     padding: 0 10px;
     cursor: pointer;
   }
-  &__link:hover{
+  &__link:hover {
     background-color: var(--dark-blue-hover);
   }
 }
 
-
-@media (min-width:992px){
-    .toggle-mode {
-  margin-right: 40px;
-}
-    .nav-list{
-        &__link{
-            padding: 0 25px;
-        }
+@media (min-width: 992px) {
+  .toggle-mode {
+    margin-right: 40px;
+  }
+  .nav-list {
+    &__link {
+      padding: 0 25px;
     }
+  }
 }
