@@ -1,7 +1,4 @@
 import classes from './Auth.module.scss';
-import Logo from '../../assets/icons8-logo.svg';
-import { Link } from 'react-router-dom';
-import ToggleMode from '../Navigation/ToggleMode/ToggleMode';
 import { useState } from 'react';
 
 const Login = () => {
@@ -17,16 +14,7 @@ const Login = () => {
 
   return (
     <>
-      <nav className={classes.nav}>
-        <div className={`container ${classes.wrapper}`}>
-          <div className={classes.logo}>
-            <Link to="/">
-              <img src={Logo} alt="" />
-            </Link>
-          </div>
-          <ToggleMode />
-        </div>
-      </nav>
+
       <main className={classes.main}>
         <div className="container">
           <form className={classes.form}>

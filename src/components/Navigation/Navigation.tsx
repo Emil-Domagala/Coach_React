@@ -1,10 +1,12 @@
-
 import NavButton from './Mobile/NavButton';
 import NavSlider from './Mobile/NavSlider';
 import NavBar from './Deskop/NavBar';
+import NavigationTwo from './NavTwo/NavigationTwo';
 import { useState, useEffect } from 'react';
+import SmallNav from './SmallNav/SmallNav';
 
-const Navigation = () => {
+const Navigation = (props: { mode: 'main' | 'two' | 'small' }) => {
+  const { mode } = props;
   const [windowWidth, setWindowWidth] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
@@ -23,14 +25,19 @@ const Navigation = () => {
 
   return (
     <nav>
-      {windowWidth < 768 ? (
+      {windowWidth < 768 && (
         <>
           <NavButton isActive={isActive} onClick={barActiveHandler} />
           <NavSlider isActive={isActive} />
         </>
-      ) : (
-        <NavBar />
       )}
+      {windowWidth < 768 && mode === 'two' && (
+        <>
+          <NavigationTwo />
+        </>
+      )}
+      {mode !== 'small' && windowWidth >= 768 && <NavBar />}
+      {mode === 'small' && <SmallNav />}
     </nav>
   );
 };
