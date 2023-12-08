@@ -31,8 +31,6 @@
   cursor: pointer;
 }
 
-
-
 .gold {
   background: linear-gradient(90deg, var(--gradient-one), var(--gradient-two));
   color: var(--white);
@@ -47,9 +45,18 @@
   background-color: var(--btn-white);
   color: var(--gold);
   transition: background-color 0.4s;
+  &:hover {
+    background-color: var(--btn-white-hover);
+  }
 }
-.white:hover {
-  background-color: var(--btn-white-hover);
+
+.error {
+  background-color: var(--btn-white);
+  color: var(--main);
+  transition: background-color 0.4s;
+  &:hover {
+    background-color: var(--btn-white-hover);
+  }
 }
 
 @media (min-width: 400px) {
@@ -57,7 +64,9 @@
     margin: auto;
     width: 220px;
   }
-  .left{
+  .left {
     width: 220px;
   }
 }
+
+

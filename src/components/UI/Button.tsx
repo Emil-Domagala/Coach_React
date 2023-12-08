@@ -3,7 +3,7 @@ import classes from './Button.module.scss';
 
 const Button = (props: {
   children: String;
-  mode: 'gold' | 'white';
+  mode: 'gold' | 'white'|'error';
   to: Partial<To>;
   location:'center'|'left';
 }) => {

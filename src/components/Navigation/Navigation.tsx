@@ -25,7 +25,7 @@ const Navigation = (props: { mode: 'main' | 'two' | 'small' }) => {
 
   return (
     <nav>
-      {windowWidth < 768 && (
+      {mode !== 'small' && windowWidth < 768 && (
         <>
           <NavButton isActive={isActive} onClick={barActiveHandler} />
           <NavSlider isActive={isActive} />
