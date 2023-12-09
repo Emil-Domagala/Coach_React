@@ -1,5 +1,7 @@
 import Filter from '../components/FindCoach/Filter';
 import Navigation from '../components/Navigation/Navigation';
+import CoachesWrapper from '../components/FindCoach/CoachesWrapper';
+import Footer from '../components/Footer/Footer';
 
 const HireCoachPage = () => {
   return (
@@ -7,8 +9,10 @@ const HireCoachPage = () => {
       <Navigation mode="two" />
       <main>
         <Filter />
+        <CoachesWrapper />
       </main>
-      <h1>Hire ME!</h1>pppp
+      <article/>
+      <Footer />
     </>
   );
 };

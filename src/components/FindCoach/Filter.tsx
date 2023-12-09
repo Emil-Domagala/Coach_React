@@ -45,7 +45,7 @@ const Filter = () => {
         className={`${classes.bgc} ${showList ? classes['ul-display'] : ''}`}
         onClick={hideList}
       ></div>
-      <div className={`container ${classes.wrapper}`}>
+      <div className={`container`}>
         <form className={classes.filter}>
           <div className={classes['input-wrapper']}>
             <label htmlFor="">Name search</label>

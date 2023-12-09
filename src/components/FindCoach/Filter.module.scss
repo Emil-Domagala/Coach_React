@@ -36,7 +36,7 @@
   box-shadow: 0px 1px 3px 1px var(--navigation);
   background-color: var(--navigation);
   border-radius: 10px;
-  margin: 20px 20px;
+  margin: 20px 20px 0 20px;
   z-index: 0;
   .input-wrapper {
     display: flex;
@@ -93,6 +93,7 @@
       var(--gradient-one)
     );
     transition: --gradient-one 0.4s, --gradient-two 0.4s;
+    cursor: pointer;
     &:hover {
       --gradient-two: #c2a65b;
       --gradient-one: #906429;

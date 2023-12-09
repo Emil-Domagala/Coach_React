@@ -1,0 +1,23 @@
+@use '../../_colors.css';
+
+.badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 11rem;
+  height: 4rem;
+  border-radius: 10rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.big{
+    background-color: var(--gold);
+}
+
+.medium {
+    background: var(--gradient-gold);
+}
+.small{
+    background-color: var(--light-gold);
+}

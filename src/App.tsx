@@ -6,6 +6,7 @@ import RootLayout from './pages/RootLayout';
 import HomePage from './pages/Home';
 import FindCoachPage from './pages/FindCoach';
 import AuthPage from './pages/Auth';
+import CoachPage from './pages/Coach';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: '/coach', element: <FindCoachPage /> },
+      { path: '/coach', element: <FindCoachPage />},
+      {path:'/coach/:id',element:<CoachPage/>}
     ],
   },
   {
