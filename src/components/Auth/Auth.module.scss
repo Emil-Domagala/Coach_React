@@ -1,10 +1,13 @@
 @use '../../_colors.css';
 
-
-
 .main {
   height: calc(100vh - 50px);
   background-color: var(--background-light);
+}
+
+.error {
+  font-size: 1.3rem;
+  color: red;
 }
 
 .form {
@@ -55,14 +58,21 @@
       background-color: var(--light-green-hover);
     }
   }
-  .change-mode{
+  button:disabled,
+  button:disabled:hover,
+  button:disabled:active {
+    background-color: var(--btn-white-hover);
+    color: var(--light-gray);
+    cursor: not-allowed;
+  }
+  .change-mode {
     text-decoration: none;
     padding: 1rem;
     font-size: 1.4rem;
-    color:var(--light-blue);
+    color: var(--light-blue);
     text-align: center;
     cursor: pointer;
-    &:hover{
+    &:hover {
       color: var(--light-blue-hover);
     }
   }
