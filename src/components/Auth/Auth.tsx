@@ -2,6 +2,8 @@ import classes from './Auth.module.scss';
 import { useState } from 'react';
 import useInputValidation from '../../hooks/use-input-validation';
 import useAuth from '../../hooks/use-auth';
+import Input from '../UI/Input';
+import Form from '../UI/Form';
 
 const Login = () => {
   const [mode, setMode] = useState('LOGIN');
@@ -42,8 +44,6 @@ const Login = () => {
 
   const formSubmitionHandler = (e: any) => {
     e.preventDefault();
-    console.log(entredEmail);
-    console.log(entredPassword);
 
     if (!formIsValid) {
       return;
@@ -55,53 +55,41 @@ const Login = () => {
     clearPasswordHandler();
   };
 
+  const header = mode === 'LOGIN' ? 'Log In' : 'Create account';
+  const button = mode === 'LOGIN' ? 'Log in' : 'Signup';
+
   return (
-    <>
       <main className={classes.main}>
         <div className="container">
-          <form className={classes.form} onSubmit={formSubmitionHandler}>
-            <h4>{mode === 'LOGIN' ? 'Log In' : 'Create account'}</h4>
-            <div className={classes['input-wrapper']}>
-              <label htmlFor="email">email</label>
-              <input
-                type="emil"
-                id="email"
-                placeholder="awesome.marketer@example.com"
-                onChange={emailChangeHandler}
-                onBlur={emailBlurHandler}
-                value={entredEmail}
-              />
-              {emailImputHasError && (
-                <p className={classes.error}>
-                  Please check if your email is correct
-                </p>
-              )}
-            </div>
-            <div className={classes['input-wrapper']}>
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                onChange={passwordChangeHandler}
-                onBlur={passwordBlurHandler}
-                value={entredPassword}
-              />
-              {passwordImputHasError && (
-                <p className={classes.error}>
-                  Password has to be at least 6 sings long
-                </p>
-              )}
-            </div>
-            <button className={classes.button} disabled={!formIsValid}>
-              {mode === 'LOGIN' ? 'Log in' : 'Signup'}
-            </button>
-            <p className={classes['change-mode']} onClick={modeHandler}>
-              {mode === 'LOGIN' ? 'Create account' : 'Log in'}
-            </p>
-          </form>
+          <Form
+            onSubmit={formSubmitionHandler}
+            header={header}
+            button={button}
+            disabled={!formIsValid}
+          >
+            <Input
+              type="email"
+              placeholder="awesome.marketer@example.com"
+              onChange={emailChangeHandler}
+              onBlur={emailBlurHandler}
+              value={entredEmail}
+              inputHasError={emailImputHasError}
+              errorMessage="Please check if your email is correct"
+            />
+            <Input
+              type="password"
+              onChange={passwordChangeHandler}
+              onBlur={passwordBlurHandler}
+              value={entredPassword}
+              inputHasError={passwordImputHasError}
+              errorMessage="Password has to be at least 6 sings long"
+            />
+          </Form>
+          <p className={classes['change-mode']} onClick={modeHandler}>
+            {mode === 'LOGIN' ? 'Create account' : 'Log in'}
+          </p>
         </div>
       </main>
-    </>
   );
 };
 

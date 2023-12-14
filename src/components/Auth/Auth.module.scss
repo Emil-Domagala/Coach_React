@@ -5,75 +5,47 @@
   background-color: var(--background-light);
 }
 
-.error {
-  font-size: 1.3rem;
-  color: red;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  max-width: 40rem;
-  margin: 0 auto;
-  padding: 100px 3rem 0 3rem;
-  h4 {
-    font-size: 1.6rem;
-    font-weight: 400;
-    text-align: center;
-    color: var(--main-color);
-    margin-bottom: 4rem;
-  }
-  .input-wrapper {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2rem;
-    label {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--light-gray);
-      margin-bottom: 0.5rem;
-      text-transform: uppercase;
-    }
-    input {
-      height: 52px;
-      border: 1px solid var(--navigation-hover);
-      border-radius: 5px;
-      background-color: var(--navigation);
-      color: var(--light-gray);
-      padding: 0 1rem;
-      font-size: 1.6rem;
-      outline: none;
-    }
-  }
-  .button {
-    height: 40px;
-    margin: 2rem 0 1rem 0;
-    background-color: var(--light-green);
-    // background-color: var(--light-green-hover);
-    color: var(--white);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    &:hover {
-      background-color: var(--light-green-hover);
-    }
-  }
-  button:disabled,
-  button:disabled:hover,
-  button:disabled:active {
-    background-color: var(--btn-white-hover);
-    color: var(--light-gray);
-    cursor: not-allowed;
-  }
-  .change-mode {
-    text-decoration: none;
-    padding: 1rem;
-    font-size: 1.4rem;
-    color: var(--light-blue);
-    text-align: center;
-    cursor: pointer;
-    &:hover {
-      color: var(--light-blue-hover);
-    }
+// .form {
+//   display: flex;
+//   flex-direction: column;
+//   max-width: 40rem;
+//   margin: 0 auto;
+//   padding: 100px 3rem 0 3rem;
+//   h4 {
+//     font-size: 1.6rem;
+//     font-weight: 400;
+//     text-align: center;
+//     color: var(--main-color);
+//     margin-bottom: 4rem;
+//   }
+//   .button {
+//     height: 40px;
+//     margin: 2rem 0 1rem 0;
+//     background-color: var(--light-green);
+//     color: var(--white);
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+//     &:hover {
+//       background-color: var(--light-green-hover);
+//     }
+//   }
+//   button:disabled,
+//   button:disabled:hover,
+//   button:disabled:active {
+//     background-color: var(--btn-white-hover);
+//     color: var(--light-gray);
+//     cursor: not-allowed;
+//   }
+// }
+.change-mode {
+  text-decoration: none;
+  padding: 1rem;
+  font-size: 1.4rem;
+  color: var(--light-blue);
+  text-align: center;
+  cursor: pointer;
+  &:hover {
+    color: var(--light-blue-hover);
   }
 }

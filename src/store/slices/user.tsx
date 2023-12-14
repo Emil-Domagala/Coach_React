@@ -3,8 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   userId: '',
   token: '',
-  // didAutoLogout: false,
-  // timeTologout: 0,
+  isLoggedIn: false,
 };
 
 const userSlice = createSlice({
@@ -17,6 +16,7 @@ const userSlice = createSlice({
       localStorage.setItem('tokenExpiration', action.payload.expirationDate);
       state.userId = action.payload.localId;
       state.token = action.payload.idToken;
+      state.isLoggedIn = true;
     },
     logout(state) {
       localStorage.removeItem('token');
@@ -24,7 +24,7 @@ const userSlice = createSlice({
       localStorage.removeItem('tokenExpiration');
       state.userId = '';
       state.token = '';
-      // state.timeTologout = 0;
+      state.isLoggedIn = false;
     },
     autoLogin(state) {
       const token = localStorage.getItem('token');
@@ -35,14 +35,9 @@ const userSlice = createSlice({
         return;
       }
 
-      const expiresIn = +tokenExpiration - new Date().getTime();
-
-      if (expiresIn < 10000) {
-        return;
-      }
-
       state.token = token;
       state.userId = userId;
+      state.isLoggedIn = true;
     },
   },
 });

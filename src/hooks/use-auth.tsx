@@ -17,7 +17,6 @@ const useAuth = () => {
           'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
       }
 
-      console.log(URL + API_KEY);
       try {
         const response = await fetch(URL + API_KEY, {
           method: 'POST',
