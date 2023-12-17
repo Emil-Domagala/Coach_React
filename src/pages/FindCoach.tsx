@@ -11,7 +11,7 @@ const HireCoachPage = () => {
         <Filter />
         <CoachesWrapper />
       </main>
-      <article/>
+      <article />
       <Footer />
     </>
   );

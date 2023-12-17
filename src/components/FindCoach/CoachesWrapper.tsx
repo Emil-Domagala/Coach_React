@@ -1,5 +1,8 @@
 import CoachCard from './CoachCard';
-import classes from './CoachesWrapper.module.scss'
+import classes from './CoachesWrapper.module.scss';
+import useHTTPCoach from '../../hooks/use-http-coach';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 const DUMMY_DATA = [
   {
@@ -35,25 +38,42 @@ const DUMMY_DATA = [
 ];
 
 const CoachesWrapper = () => {
+  const { loadCoaches } = useHTTPCoach();
+  const coaches = useSelector((state: any) => state.coaches);
+
+  useEffect(() => {
+    // loadCoaches();
+  }, []);
+  // console.log(coaches);
+
   return (
     <div className={`container`}>
       <div className={classes.wrapper}>
-        {' '}
-        {DUMMY_DATA.map(
-          (user) =>
-            user && (
+        {/* {coaches.map(
+          (coach:{}) =>
+            coach && (
               <CoachCard
-                key={user.id}
-                userImg={user.img}
+                key={coach.id}
+                userImg={coach.img}
                 name={user.name}
                 lastname={user.lastname}
                 description={user.description}
                 price={user.price}
                 badges={user.badges}
                 id={user.id}
+                
+                          key={coach.coachId}
+                          id={coach.coachId}
+          name={coach.coachName}
+          lastname={coach.coachLastname} 
+          price={coach.coachPrice}
+          coachImg={coach.coachUrl}
+          description={{coach.coachDesc}
+          badges={coach.coachWays} 
+          size={coach.coachSize} 
               ></CoachCard>
             ),
-        )}
+        )} */}
       </div>
     </div>
   );

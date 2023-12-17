@@ -7,7 +7,7 @@ const useAuth = () => {
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
   const authHandler = useCallback(
-    async (mode: string, userEmail: any, userPassword: any) => {
+    async (mode: string, userEmail: string, userPassword: string) => {
       let URL =
         'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=';
       const API_KEY = 'AIzaSyDdoiMPQNY-af7SLM5Shnii9GRzpL5Ymks';
@@ -40,11 +40,9 @@ const useAuth = () => {
           idToken: data.idToken,
           localId: data.localId,
           expirationDate: expirationDate,
+          userEmail:userEmail
         };
         dispatch(userActions.login(userData));
-        // const timer = setTimeout(function () {
-        //   dispatch(userActions.logout());
-        // }, expiresIn);
       } catch (err: any) {
         setError(err.message || 'Something went wrong!');
       }

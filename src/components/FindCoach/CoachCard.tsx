@@ -3,15 +3,15 @@ import Badges from './Badges';
 import { Link } from 'react-router-dom';
 
 const CoachCard = (props: {
-  userImg: string;
+  coachImg: string;
   name: String;
   lastname: String;
   description: String;
   price: number;
-  badges: string[];
+  badges: {};
   id:string
 }) => {
-  const { userImg, name, lastname, description, price, badges,id } = props;
+  const { coachImg, name, lastname, description, price, badges,id } = props;
 
   const userName = name[0].toLocaleUpperCase() + name.slice(1);
   const userLastname = lastname[0].toLocaleUpperCase() + lastname.slice(1);
@@ -21,15 +21,15 @@ const CoachCard = (props: {
     <Link to={`${id}`} className={classes.link}>
       <div className={classes.card}>
         <div className={classes.hero}>
-          <img src={userImg} alt="" />
+          <img src={coachImg} alt="" />
         </div>
         <div className={classes.bottom}>
           <div className={classes.content}>
             <h3>{userFullName}</h3>
             <div className={classes.badges}>
-              {badges.map(
+              {/* {badges.map(
                 (badge) => badge && <Badges key={badge} badge={badge} />,
-              )}
+              )} */}
             </div>
             <div className={classes.description}>
               <p>{description}</p>
