@@ -59,37 +59,39 @@ const Login = () => {
   const button = mode === 'LOGIN' ? 'Log in' : 'Signup';
 
   return (
-      <main className={classes.main}>
-        <div className="container">
-          <Form
-            onSubmit={formSubmitionHandler}
-            header={header}
-            button={button}
-            disabled={!formIsValid}
-          >
-            <Input
-              type="email"
-              placeholder="awesome.marketer@example.com"
-              onChange={emailChangeHandler}
-              onBlur={emailBlurHandler}
-              value={entredEmail}
-              inputHasError={emailImputHasError}
-              errorMessage="Please check if your email is correct"
-            />
-            <Input
-              type="password"
-              onChange={passwordChangeHandler}
-              onBlur={passwordBlurHandler}
-              value={entredPassword}
-              inputHasError={passwordImputHasError}
-              errorMessage="Password has to be at least 6 sings long"
-            />
-          </Form>
-          <p className={classes['change-mode']} onClick={modeHandler}>
-            {mode === 'LOGIN' ? 'Create account' : 'Log in'}
-          </p>
-        </div>
-      </main>
+    <main className={classes.main}>
+      <div className="container">
+        <Form
+          onSubmit={formSubmitionHandler}
+          header={header}
+          button={button}
+          disabled={!formIsValid}
+        >
+          <Input
+            type="email"
+            label="email"
+            placeholder="awesome.marketer@example.com"
+            onChange={emailChangeHandler}
+            onBlur={emailBlurHandler}
+            value={entredEmail}
+            inputHasError={emailImputHasError}
+            errorMessage="Please check if your email is correct"
+          />
+          <Input
+            type="password"
+            label="password"
+            onChange={passwordChangeHandler}
+            onBlur={passwordBlurHandler}
+            value={entredPassword}
+            inputHasError={passwordImputHasError}
+            errorMessage="Password has to be at least 6 sings long"
+          />
+        </Form>
+        <p className={classes['change-mode']} onClick={modeHandler}>
+          {mode === 'LOGIN' ? 'Create account' : 'Log in'}
+        </p>
+      </div>
+    </main>
   );
 };
 

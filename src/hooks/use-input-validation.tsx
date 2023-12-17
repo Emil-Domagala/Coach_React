@@ -15,7 +15,7 @@ const useInputValidation = (validateValue: any) => {
     setEntredValue('')
   };
 
-  const valueChangeHandler = (e: any) => {
+  const valueChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEntredValue(e.target.value);
   };
 
