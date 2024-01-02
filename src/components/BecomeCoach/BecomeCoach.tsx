@@ -1,15 +1,15 @@
-import { useState } from 'react';
 import useInputValidation from '../../hooks/use-input-validation';
 import useCheckboxValidation from '../../hooks/use-checkbox-validation';
 import useHTTPCoach from '../../hooks/use-http-coach';
-// import useAuth from '../../hooks/use-auth';
 import Form from '../UI/Form';
 import Input from '../UI/Input';
 import classes from './BecomeCoach.module.scss';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import Check from '../../icons/Check';
 
 const BecomeCoach = () => {
-  // const { authHandler } = useAuth();
+  const navigate = useNavigate()
   const { registerCoach } = useHTTPCoach();
   const userData = useSelector((state: any) => state.user);
 
@@ -114,15 +114,14 @@ const BecomeCoach = () => {
 
     registerCoach(colectedData, userData);
 
-    //   authHandler(mode, entredname, entredPassword);
-
-    // clearNameHandler();
-    // clearLastnameHandler()
-    // clearPriceHandler()
-    // clearUrlHandler()
-    // clearDescHandler()
-    // clearWaysHandler()
-    // clearSizeHandler()
+    clearNameHandler();
+    clearLastnameHandler()
+    clearPriceHandler()
+    clearUrlHandler()
+    clearDescHandler()
+    clearWaysHandler()
+    clearSizeHandler()
+    navigate('/')
   };
 
   return (
@@ -197,7 +196,7 @@ const BecomeCoach = () => {
                     onBlur={sizeBlurHandler}
                     checked={sizeValue.big}
                   />
-                  <span className={classes.checkbox} />{' '}
+                  <span className={classes.checkbox} ><Check/></span>
                   <span className={classes['option-name']}>Big</span>
                 </label>
               </div>
@@ -210,7 +209,7 @@ const BecomeCoach = () => {
                     onBlur={sizeBlurHandler}
                     checked={sizeValue.medium}
                   />
-                  <span className={classes.checkbox} />{' '}
+                  <span className={classes.checkbox} ><Check/></span>
                   <span className={classes['option-name']}>Medium</span>
                 </label>
               </div>
@@ -223,7 +222,7 @@ const BecomeCoach = () => {
                     onBlur={sizeBlurHandler}
                     checked={sizeValue.small}
                   />
-                  <span className={classes.checkbox} />{' '}
+                  <span className={classes.checkbox} ><Check/></span>
                   <span className={classes['option-name']}>Small</span>
                 </label>
               </div>
@@ -247,7 +246,7 @@ const BecomeCoach = () => {
                     onBlur={waysBlurHandler}
                     checked={waysValue.virtual}
                   />
-                  <span className={classes.checkbox} />{' '}
+                  <span className={classes.checkbox} ><Check/></span>
                   <span className={classes['option-name']}>Virtual</span>
                 </label>
               </div>
@@ -260,7 +259,7 @@ const BecomeCoach = () => {
                     onBlur={waysBlurHandler}
                     checked={waysValue.inPerson}
                   />
-                  <span className={classes.checkbox} />{' '}
+                  <span className={classes.checkbox} ><Check/></span>
                   <span className={classes['option-name']}>In Person</span>
                 </label>
               </div>

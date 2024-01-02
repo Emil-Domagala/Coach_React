@@ -1,9 +1,17 @@
-import Filter from '../components/FindCoach/Filter';
 import Navigation from '../components/Navigation/Navigation';
 import CoachesWrapper from '../components/FindCoach/CoachesWrapper';
 import Footer from '../components/Footer/Footer';
+import Filter from '../components/FindCoach/Filter';
+import useHTTPCoach from '../hooks/use-http-coach';
+import { useEffect } from 'react';
 
 const HireCoachPage = () => {
+  const { loadCoaches } = useHTTPCoach();
+
+  useEffect(() => {
+    loadCoaches();
+  }, [loadCoaches]);
+
   return (
     <>
       <Navigation mode="two" />
@@ -16,4 +24,5 @@ const HireCoachPage = () => {
     </>
   );
 };
+
 export default HireCoachPage;

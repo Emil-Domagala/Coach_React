@@ -1,5 +1,7 @@
 import classes from './Filter.module.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { coachesActions } from '../../store/slices/coaches';
 
 const options = [
   {
@@ -21,9 +23,17 @@ const options = [
   },
 ];
 
-const Filter = () => {
+
+const Filter = (props: any) => {
   const [selectedValue, setSelectedValue] = useState('Please Choose...');
+  const [entredVal, setEntredVal] = useState('');
   const [showList, setShowList] = useState(false);
+  const allCoaches = useSelector((state: any) => state.coaches.coaches);
+  const dispatch = useDispatch();
+
+  const changeValHandler = (e: any) => {
+    setEntredVal(e.target.value);
+  };
 
   const listHandler = (e: any) => {
     const value = e.target.innerText;
@@ -39,6 +49,31 @@ const Filter = () => {
     setShowList(!showList);
   };
 
+  useEffect(() => {
+    const data = {
+      entredVal: '',
+      selectedValueId: 'empty',
+      allCoaches,
+    };
+    dispatch(coachesActions.filterCoaches(data));
+  },[allCoaches]);
+
+  const filterCoachesHandler = (event: any) => {
+    event.preventDefault();
+    let selectedValueId = 'empty';
+    if (selectedValue === 'Big Company') {
+      selectedValueId = 'big';
+    }
+    if (selectedValue === 'Medium Company') {
+      selectedValueId = 'medium';
+    }
+    if (selectedValue === 'Small Company') {
+      selectedValueId = 'small';
+    }
+    const data = { entredVal, selectedValueId, allCoaches };
+    dispatch(coachesActions.filterCoaches(data));
+  };
+
   return (
     <>
       <div
@@ -49,7 +84,12 @@ const Filter = () => {
         <form className={classes.filter}>
           <div className={classes['input-wrapper']}>
             <label htmlFor="">Name search</label>
-            <input type="text" placeholder="Eg. Emil Domagała" />
+            <input
+              type="text"
+              placeholder="Eg. Emil Domagała"
+              value={entredVal}
+              onChange={changeValHandler}
+            />
           </div>
           <div className={classes['input-wrapper']}>
             <label htmlFor="">Company size search</label>
@@ -82,17 +122,16 @@ const Filter = () => {
                 onClick={listHandler}
               >
                 {options.map((option) => (
-                  <li
-                    key={option.value}
-                    className={classes['select-li']}
-                  >
+                  <li key={option.value} className={classes['select-li']}>
                     {option.label}
                   </li>
                 ))}
               </ul>
             </div>
           </div>
-          <button className={classes.button}>Search for coaches</button>
+          <button className={classes.button} onClick={filterCoachesHandler}>
+            Search for coaches
+          </button>
         </form>
       </div>
     </>

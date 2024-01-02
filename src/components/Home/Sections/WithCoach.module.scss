@@ -21,6 +21,9 @@
     margin-bottom: 2rem;
     color: var(--main-color);
     .circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       min-width: 20px;
       min-height: 20px;
       max-width: 20px;
@@ -28,6 +31,11 @@
       border-radius: 50%;
       margin-right: 30px;
       background-color: var(--main-color);
+      svg{
+        color: var(--background);
+        width: 12px;
+        height: 12px;
+      }
     }
     p {
       font-size: 2rem;

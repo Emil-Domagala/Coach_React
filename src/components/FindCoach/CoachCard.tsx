@@ -8,14 +8,19 @@ const CoachCard = (props: {
   lastname: String;
   description: String;
   price: number;
-  badges: {};
-  id:string
+  badges: any;
+  id: string;
 }) => {
-  const { coachImg, name, lastname, description, price, badges,id } = props;
+  const { coachImg, name, lastname, description, price, badges, id } = props;
 
-  const userName = name[0].toLocaleUpperCase() + name.slice(1);
-  const userLastname = lastname[0].toLocaleUpperCase() + lastname.slice(1);
-  const userFullName = userName + ' ' + userLastname;
+  const coachName = name[0].toLocaleUpperCase() + name.slice(1);
+  const coachLastname = lastname[0].toLocaleUpperCase() + lastname.slice(1);
+  const coachFullName = coachName + ' ' + coachLastname;
+
+
+const badgesArr: string[] = Object.keys(badges).filter((key) => badges[key]);
+
+
 
   return (
     <Link to={`${id}`} className={classes.link}>
@@ -25,11 +30,11 @@ const CoachCard = (props: {
         </div>
         <div className={classes.bottom}>
           <div className={classes.content}>
-            <h3>{userFullName}</h3>
+            <h3>{coachFullName}</h3>
             <div className={classes.badges}>
-              {/* {badges.map(
-                (badge) => badge && <Badges key={badge} badge={badge} />,
-              )} */}
+              {badgesArr.map(
+                (badge:string) => badge && <Badges key={badge} badge={badge} />,
+              )}
             </div>
             <div className={classes.description}>
               <p>{description}</p>

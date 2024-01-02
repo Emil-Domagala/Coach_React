@@ -3,6 +3,7 @@
 .main {
   //   height: calc(100vh - 50px);
   background-color: var(--background-light);
+  padding-bottom: 6rem;
 }
 
 .label {
@@ -38,19 +39,30 @@
         width: 0;
       }
       .checkbox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 15px;
         width: 15px;
         background-color: var(--btn-white);
         border-radius: 50%;
         margin-right: 10px;
+        svg {
+          display: none;
+          color: var(--white);
+          width: 10px;
+          height: 10px;
+        }
       }
-      .option-name{
-            color: var(--light-gray);
-
+      .option-name {
+        color: var(--light-gray);
       }
     }
     input:checked ~ .checkbox {
       background-color: var(--light-green);
+      svg {
+        display: block;
+      }
     }
     input:checked ~ .option-name {
       color: var(--nav-button);
@@ -60,5 +72,5 @@
 
 .error {
   font-size: 1.3rem;
-  color: red;
+  color: var(--warning);
 }

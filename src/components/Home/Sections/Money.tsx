@@ -1,5 +1,12 @@
 import Button from '../../UI/Button';
 import classes from './Money.module.scss';
+import Bitcoin from '../../../icons/Bitcoin';
+import CashIcon from '../../../icons/CashIcon';
+import MarketingIcon from '../../../icons/MarketingIcon';
+import OperationsIcon from '../../../icons/OperationsIcon';
+import ProductsIcon from '../../../icons/ProductsIcon';
+import RoadSign from '../../../icons/RoadSign';
+
 
 const Money = () => {
   return (
@@ -16,7 +23,9 @@ const Money = () => {
           <div className={classes['steps__column']}>
             <div className={classes.step}>
               <div className={classes['icon-bgc']}>
-                <div className={classes.icon}></div>
+                <div className={classes.icon}>
+                  <RoadSign />
+                </div>
               </div>
               <p>
                 <span>LEADERSHIP: </span>Identify and prioritize 3 initiatives
@@ -25,7 +34,9 @@ const Money = () => {
             </div>
             <div className={classes.step}>
               <div className={classes['icon-bgc']}>
-                <div className={classes.icon}></div>
+                <div className={classes.icon}>
+                  <Bitcoin />
+                </div>
               </div>
               <p>
                 <span>SALES: </span>Create a Sales conversation that will help
@@ -35,7 +46,9 @@ const Money = () => {
             </div>
             <div className={classes.step}>
               <div className={classes['icon-bgc']}>
-                <div className={classes.icon}></div>
+                <div className={classes.icon}>
+                  <OperationsIcon />
+                </div>
               </div>
               <p>
                 <span>OPERATIONS: </span>Install a management and productivity
@@ -47,7 +60,9 @@ const Money = () => {
           <div className={classes['steps__column']}>
             <div className={classes.step}>
               <div className={classes['icon-bgc']}>
-                <div className={classes.icon}></div>
+                <div className={classes.icon}>
+                  <MarketingIcon />
+                </div>
               </div>
               <p>
                 <span>MARKETING: </span>Create a marketing funnel to generate
@@ -56,7 +71,9 @@ const Money = () => {
             </div>
             <div className={classes.step}>
               <div className={classes['icon-bgc']}>
-                <div className={classes.icon}></div>
+                <div className={classes.icon}>
+                  <ProductsIcon />
+                </div>
               </div>
               <p>
                 <span>PRODUCTS: </span>Perform profitability audits and install
@@ -66,7 +83,9 @@ const Money = () => {
             </div>
             <div className={classes.step}>
               <div className={classes['icon-bgc']}>
-                <div className={classes.icon}></div>
+                <div className={classes.icon}>
+                  <CashIcon />
+                </div>
               </div>
               <p>
                 <span>CASH FLOW: </span>Learn to use 5 checking accounts so you
@@ -75,9 +94,9 @@ const Money = () => {
             </div>
           </div>
         </div>
-          <Button mode="gold" to="/coach" location="center">
-            Find your Coach
-          </Button>
+        <Button mode="gold" to="/coach" location="center">
+          Find your Coach
+        </Button>
       </div>
     </section>
   );
