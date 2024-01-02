@@ -1,22 +1,17 @@
 import classes from './Reasons.module.scss';
-// import bitcoin from '../../../icons/bitcoin';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faMagnifyingGlass,
-  faUserTie,
-} from '@fortawesome/free-solid-svg-icons';
-import { faBitcoin } from '@fortawesome/free-brands-svg-icons';
-
-
 import Bitcoin from '../../../icons/Bitcoin';
+import MagnGlass from '../../../icons/MagnGlass';
+import UserTie from '../../../icons/UserTie';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const Reasons = () => {
   return (
-    <section id='reasons'>
+    <section id="reasons">
       <div className={classes.reasons}>
         <div className={classes.reason}>
           <div className={classes.img}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
+            <MagnGlass />
           </div>
           <h3>1. Find your coach</h3>
           <p>
@@ -26,14 +21,13 @@ const Reasons = () => {
         </div>
         <div className={classes.reason}>
           <div className={classes.img}>
-            <FontAwesomeIcon icon={faUserTie} />
+            <UserTie />
           </div>
           <h3>2. Hire your coach</h3>
           <p>Get mentored through our 6-step business growth plan</p>
         </div>
         <div className={classes.reason}>
           <div className={classes.img}>
-            {/* <svg src={Bitcoin} /> */}
             <Bitcoin />
           </div>
           <h3>3. Grow your revenue & free time</h3>

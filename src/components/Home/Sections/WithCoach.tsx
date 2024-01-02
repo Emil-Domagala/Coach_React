@@ -1,5 +1,6 @@
 import Button from '../../UI/Button';
 import classes from './WithCoach.module.scss';
+import Check from '../../../icons/Check';
 
 const WithCoach = () => {
   return (
@@ -12,37 +13,37 @@ const WithCoach = () => {
         <div className={classes.reasons}>
           <div className={classes.reason}>
             <div className={classes.wrapper}>
-              <div className={classes.circle}></div>
+              <div className={classes.circle}><Check/></div>
               <p>Get out of the day-to-day</p>
             </div>
           </div>
           <div className={classes.reason}>
             <div className={classes.wrapper}>
-              <div className={classes.circle}></div>
+              <div className={classes.circle}><Check/></div>
               <p>Get dependable, predictable results</p>
             </div>
           </div>
           <div className={classes.reason}>
             <div className={classes.wrapper}>
-              <div className={classes.circle}></div>
+              <div className={classes.circle}><Check/></div>
               <p>Break revenue records</p>
             </div>
           </div>
           <div className={classes.reason}>
             <div className={classes.wrapper}>
-              <div className={classes.circle}></div>
+              <div className={classes.circle}><Check/></div>
               <p>Put the right processes in place</p>
             </div>
           </div>
           <div className={classes.reason}>
             <div className={classes.wrapper}>
-              <div className={classes.circle}></div>
+              <div className={classes.circle}><Check/></div>
               <p>Enjoy more free time and flexibility</p>
             </div>
           </div>
           <div className={classes.reason}>
             <div className={classes.wrapper}>
-              <div className={classes.circle}></div>
+              <div className={classes.circle}><Check/></div>
               <p>Free up your schedule for passion projects</p>
             </div>
           </div>

@@ -1,17 +1,17 @@
 import classes from './NavSlider.module.scss';
 import ToggleMode from '../ToggleMode/ToggleMode';
 import { Link, useLocation } from 'react-router-dom';
-import { useSelector,useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { userActions } from '../../../store/slices/user';
 
 const NavSlider = (props: { isActive: boolean }) => {
   const location = useLocation().pathname;
   const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    const logoutHandler = () => {
-      dispatch(userActions.logout());
-    };
+  const logoutHandler = () => {
+    dispatch(userActions.logout());
+  };
 
   return (
     <div
@@ -33,7 +33,7 @@ const NavSlider = (props: { isActive: boolean }) => {
             location === '/coach' ? classes.current : ''
           }`}
         >
-          <Link to="coach">Find your coach</Link>
+          <Link to="/coach">Find your coach</Link>
         </li>
         <li
           className={`${classes['slider-list__link']} ${

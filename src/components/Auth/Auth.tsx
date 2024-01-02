@@ -4,8 +4,10 @@ import useInputValidation from '../../hooks/use-input-validation';
 import useAuth from '../../hooks/use-auth';
 import Input from '../UI/Input';
 import Form from '../UI/Form';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [mode, setMode] = useState('LOGIN');
   const { authHandler } = useAuth();
 
@@ -53,6 +55,9 @@ const Login = () => {
 
     clearEmailHandler();
     clearPasswordHandler();
+    if (mode === 'LOGIN') {
+      navigate('/');
+    }
   };
 
   const header = mode === 'LOGIN' ? 'Log In' : 'Create account';

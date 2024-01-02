@@ -1,5 +1,4 @@
 :root {
-  --main:#2d3354;
   --main-color: #2d3354;
   --main-color-semitransparent: #02091acc;
   --hero-left: #141a34f2;
@@ -23,6 +22,9 @@
   --light-green-hover: #09ba86;
   --light-blue: #3cb9ff;
   --light-blue-hover: #1779ba;
+  --main-color-button: #2d3354;
+  --main-color-button-hover: #1e2243;
+  --warning:rgb(199, 0, 0);
 }
 
 [data-theme='dark'] {
@@ -32,4 +34,6 @@
   --navigation: #111111;
   --navigation-hover: #242424;
   --nav-button: #fff;
+  --main-color-button: #fff;
+  --main-color-button-hover: #eee;
 }

@@ -6,8 +6,8 @@ import RootLayout from './pages/RootLayout';
 import HomePage from './pages/Home';
 import FindCoachPage from './pages/FindCoach';
 import AuthPage from './pages/Auth';
-import CoachPage from './pages/Coach';
-import BecomeCoachPage from './pages/BecomeCoach'
+import CoachDetailPage, { loadCoach } from './pages/CoachDetail';
+import BecomeCoachPage from './pages/BecomeCoach';
 import { useDispatch } from 'react-redux';
 import { userActions } from './store/slices/user';
 import { useEffect } from 'react';
@@ -19,18 +19,23 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: '/coach', element: <FindCoachPage /> },
-      { path: '/coach/:id', element: <CoachPage /> },
-      { path: '/join', element: <BecomeCoachPage /> },
+      { path: 'coach', element: <FindCoachPage /> },
+      {
+        path: 'coach/:id',
+        element: <CoachDetailPage />,
+        loader: loadCoach,
+      },
+      { path: 'join', element: <BecomeCoachPage /> },
     ],
   },
   {
-    path: '/auth',
+    path: 'auth',
     element: <AuthPage />,
   },
 ]);
 
 function App() {
+
   const dispatch = useDispatch();
 
   useEffect(() => {

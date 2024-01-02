@@ -22,6 +22,7 @@ const Input = (props: any) => {
           onChange={props.onChange}
           onBlur={props.onBlur}
           value={props.value}
+          maxLength={300}
         />
       )}
       {props.inputHasError && (
