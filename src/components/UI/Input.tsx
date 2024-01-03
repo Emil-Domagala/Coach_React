@@ -1,8 +1,33 @@
 import classes from './Input.module.scss';
 
-const Input = (props: any) => {
+const Input = (props: {
+  label: string;
+  type: string;
+  placeholder?: string;
+  errorMessage: string;
+  value: string | number;
+  inputHasError: boolean;
+  mode: 'basic' | 'contact';
+  onChange: any;
+  // | React.ChangeEventHandler<HTMLInputElement>
+  // | React.ChangeEventHandler<HTMLTextAreaElement>
+  // | undefined;
+  onBlur: any;
+  // | React.FocusEventHandler<HTMLInputElement>
+  // | React.FocusEventHandler<HTMLTextAreaElement>
+  // | undefined;
+}) => {
+  let className: any;
+
+  if (props.mode === 'contact') {
+    className = classes['contact'];
+  }
+  if (props.mode === 'basic') {
+    className = classes['basic'];
+  }
+
   return (
-    <div className={classes['input-wrapper']}>
+    <div className={classes['input-wrapper'] + ' ' + className}>
       <label htmlFor={props.label}>{props.label}</label>
       {props.type !== 'textarea' && (
         <input
@@ -29,7 +54,6 @@ const Input = (props: any) => {
         <p className={classes.error}>{props.errorMessage}</p>
       )}
     </div>
-    
   );
 };
 

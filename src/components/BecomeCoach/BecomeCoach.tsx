@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import Check from '../../icons/Check';
 
 const BecomeCoach = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { registerCoach } = useHTTPCoach();
   const userData = useSelector((state: any) => state.user);
 
@@ -115,13 +115,13 @@ const BecomeCoach = () => {
     registerCoach(colectedData, userData);
 
     clearNameHandler();
-    clearLastnameHandler()
-    clearPriceHandler()
-    clearUrlHandler()
-    clearDescHandler()
-    clearWaysHandler()
-    clearSizeHandler()
-    navigate('/')
+    clearLastnameHandler();
+    clearPriceHandler();
+    clearUrlHandler();
+    clearDescHandler();
+    clearWaysHandler();
+    clearSizeHandler();
+    navigate('/');
   };
 
   return (
@@ -134,6 +134,7 @@ const BecomeCoach = () => {
           disabled={!formIsValid}
         >
           <Input
+            mode="basic"
             type="text"
             label="Name"
             placeholder="Emil"
@@ -144,6 +145,7 @@ const BecomeCoach = () => {
             errorMessage="This input cannot be empty"
           />
           <Input
+            mode="basic"
             type="text"
             label="lastname"
             placeholder="Nowak"
@@ -154,6 +156,7 @@ const BecomeCoach = () => {
             errorMessage="This input cannot be empty"
           />
           <Input
+            mode="basic"
             type="number"
             label="price"
             placeholder="Your price in USD"
@@ -164,6 +167,7 @@ const BecomeCoach = () => {
             errorMessage="Your price has to be grater than 0"
           />
           <Input
+            mode="basic"
             type="url"
             label="Your background"
             placeholder="https://unblast.com/wp-content/uploads/2021/01/Space-Background-Images.jpg"
@@ -174,6 +178,7 @@ const BecomeCoach = () => {
             errorMessage="This input cannot be empty"
           />
           <Input
+            mode="basic"
             type="textarea"
             label="Description"
             placeholder="Tell few words about yourself to your future customer."
@@ -196,7 +201,9 @@ const BecomeCoach = () => {
                     onBlur={sizeBlurHandler}
                     checked={sizeValue.big}
                   />
-                  <span className={classes.checkbox} ><Check/></span>
+                  <span className={classes.checkbox}>
+                    <Check />
+                  </span>
                   <span className={classes['option-name']}>Big</span>
                 </label>
               </div>
@@ -209,7 +216,9 @@ const BecomeCoach = () => {
                     onBlur={sizeBlurHandler}
                     checked={sizeValue.medium}
                   />
-                  <span className={classes.checkbox} ><Check/></span>
+                  <span className={classes.checkbox}>
+                    <Check />
+                  </span>
                   <span className={classes['option-name']}>Medium</span>
                 </label>
               </div>
@@ -222,7 +231,9 @@ const BecomeCoach = () => {
                     onBlur={sizeBlurHandler}
                     checked={sizeValue.small}
                   />
-                  <span className={classes.checkbox} ><Check/></span>
+                  <span className={classes.checkbox}>
+                    <Check />
+                  </span>
                   <span className={classes['option-name']}>Small</span>
                 </label>
               </div>
@@ -246,7 +257,9 @@ const BecomeCoach = () => {
                     onBlur={waysBlurHandler}
                     checked={waysValue.virtual}
                   />
-                  <span className={classes.checkbox} ><Check/></span>
+                  <span className={classes.checkbox}>
+                    <Check />
+                  </span>
                   <span className={classes['option-name']}>Virtual</span>
                 </label>
               </div>
@@ -259,7 +272,9 @@ const BecomeCoach = () => {
                     onBlur={waysBlurHandler}
                     checked={waysValue.inPerson}
                   />
-                  <span className={classes.checkbox} ><Check/></span>
+                  <span className={classes.checkbox}>
+                    <Check />
+                  </span>
                   <span className={classes['option-name']}>In Person</span>
                 </label>
               </div>

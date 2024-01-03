@@ -1,5 +1,11 @@
 @use '../../_colors.css';
 
+.bgc{
+    width: 100vw;
+    height: 100%;
+    background-color: var(--background-light);
+}
+
 .header {
   width: 100vw;
   max-height: 30rem;
@@ -54,6 +60,7 @@ li {
     border-radius: 100px;
     background-color: var(--main-color-button);
     color: var(--navigation);
+    cursor: pointer;
     &:hover {
       background-color: var(--main-color-button-hover);
     }
@@ -92,7 +99,7 @@ li {
   flex-direction: column;
   color: var(--main-color);
   margin-bottom: 2rem;
-  h3 {
+  .underline {
     border-bottom: 1px solid var(--navigation);
   }
   .desc{
@@ -104,4 +111,19 @@ li {
         list-style-position: inside;
     }
   }
+}
+
+@media (min-width:768px) {
+    .wrapper{
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+    }
+    .main-info{
+        width: 35%;
+        margin-right: 60px;
+    }
+    .more{
+        width: calc(65% - 60px);
+    }
 }
