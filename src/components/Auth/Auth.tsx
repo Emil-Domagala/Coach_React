@@ -73,6 +73,7 @@ const Login = () => {
           disabled={!formIsValid}
         >
           <Input
+            mode="basic"
             type="email"
             label="email"
             placeholder="awesome.marketer@example.com"
@@ -83,6 +84,7 @@ const Login = () => {
             errorMessage="Please check if your email is correct"
           />
           <Input
+            mode="basic"
             type="password"
             label="password"
             onChange={passwordChangeHandler}
