@@ -54,16 +54,18 @@
   list-style: none;
   display: flex;
   flex-direction: row;
-  height: 100%;
+  height: 72px;
   color: var(--white);
+  margin: 0;
   a {
     text-decoration: none;
     color: var(--white);
+    height: 72px;
   }
   &__link {
     display: flex;
     align-items: center;
-    height: 100%;
+    height: 72px;
     font-size: 1.5rem;
     padding: 0 10px;
     cursor: pointer;

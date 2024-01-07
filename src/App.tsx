@@ -5,9 +5,10 @@ import ErrorPage from './pages/Error';
 import RootLayout from './pages/RootLayout';
 import HomePage from './pages/Home';
 import FindCoachPage from './pages/FindCoach';
-import AuthPage from './pages/Auth';
+import AuthPage, { checkAuthLoader } from './pages/Auth';
 import CoachDetailPage, { loadCoach } from './pages/CoachDetail';
-import BecomeCoachPage from './pages/BecomeCoach';
+import BecomeCoachPage, { checkBecomeCoachLoader } from './pages/BecomeCoach';
+import MessagesPage, { loadMessages } from './pages/Messages';
 import { useDispatch } from 'react-redux';
 import { userActions } from './store/slices/user';
 import { useEffect } from 'react';
@@ -25,17 +26,22 @@ const router = createBrowserRouter([
         element: <CoachDetailPage />,
         loader: loadCoach,
       },
-      { path: 'join', element: <BecomeCoachPage /> },
+      {
+        path: 'join',
+        element: <BecomeCoachPage />,
+        loader: checkBecomeCoachLoader,
+      },
+      { path: 'messages', element: <MessagesPage />, loader: loadMessages },
     ],
   },
   {
     path: 'auth',
     element: <AuthPage />,
+    loader: checkAuthLoader,
   },
 ]);
 
 function App() {
-
   const dispatch = useDispatch();
 
   useEffect(() => {

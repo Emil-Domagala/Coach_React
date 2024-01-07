@@ -1,0 +1,44 @@
+@use '../../_colors.css';
+
+.wrapper {
+  padding: 20px 15px;
+  box-shadow: 0px 0px 10px -3px var(--navigation);
+  background-color: var(--background);
+  color: var(--main-color);
+  border-radius: 5px;
+  margin: 0 2rem 4rem 2rem;
+}
+
+.info {
+  h3 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin: 0 0 0.5rem 0;
+    padding: 0;
+    text-transform: none;
+  }
+  &__contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 1.5rem;
+    .item-wrapper {
+      display: flex;
+      flex-direction: row;
+      text-decoration: none;
+      color: var(--main-color);
+      cursor: pointer;
+      .icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 1rem;
+      }
+    }
+  }
+}
+
+.message{
+    max-height: 200px;
+    overflow: scroll;
+}

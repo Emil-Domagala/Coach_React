@@ -2,7 +2,6 @@ import classes from './CoachDetailContent.module.scss';
 import Check from '../../icons/Check';
 import Xmark from '../../icons/Xmark';
 import FormContact from './FormContact';
-import Button from '../UI/Button';
 
 const CoachDetailContent = (props: any) => {
   const coach = props.selectedCoach;
@@ -16,7 +15,7 @@ const CoachDetailContent = (props: any) => {
   console.log(coach);
 
   return (
-    <div className={classes.bgc}>
+    <>
       <div className={classes.header}>
         <img src={coach.coachUrl} alt="" />
       </div>
@@ -67,7 +66,7 @@ const CoachDetailContent = (props: any) => {
             <ul>
               {sizeArr.map((item: any) => {
                 const upperItem = item[0].toLocaleUpperCase() + item.slice(1);
-                return <li>{upperItem}</li>;
+                return <li key={item}>{upperItem}</li>;
               })}
             </ul>
           </div>
@@ -75,18 +74,7 @@ const CoachDetailContent = (props: any) => {
           <FormContact />
         </div>
       </div>
-      {/* <div className="header"></div>
-  <div className="left">
-    <h2>Name</h2>
-    <button>Contact</button>
-    <div className="ways"></div>
-  </div>
-  <div className="right">
-    <div className="about"></div>
-    <div className="sizes"></div>
-  <div className="contact"></div>
-  </div> */}
-    </div>
+    </>
   );
 };
 export default CoachDetailContent;

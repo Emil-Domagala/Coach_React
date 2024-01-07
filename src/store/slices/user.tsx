@@ -3,8 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   userId: '',
   token: '',
-  userEmail:'',
+  userEmail: '',
   isLoggedIn: false,
+  isCoach: false,
 };
 
 const userSlice = createSlice({
@@ -15,7 +16,7 @@ const userSlice = createSlice({
       localStorage.setItem('token', action.payload.idToken);
       localStorage.setItem('userId', action.payload.localId);
       localStorage.setItem('userEmail', action.payload.userEmail);
-      localStorage.setItem('tokenExpiration', action.payload.expirationDate);
+      localStorage.setItem('isLoggedIn', 'true');
       state.userId = action.payload.localId;
       state.token = action.payload.idToken;
       state.userEmail = action.payload.userEmail;
@@ -24,8 +25,9 @@ const userSlice = createSlice({
     logout(state) {
       localStorage.removeItem('token');
       localStorage.removeItem('userId');
-      localStorage.removeItem('tokenExpiration');
       localStorage.removeItem('userEmail');
+      localStorage.removeItem('isCoach');
+      localStorage.removeItem('isLoggedIn');
       state.userId = '';
       state.token = '';
       state.userEmail = '';
@@ -35,16 +37,37 @@ const userSlice = createSlice({
       const token = localStorage.getItem('token');
       const userId = localStorage.getItem('userId');
       const userEmail = localStorage.getItem('userEmail');
-      const tokenExpiration = localStorage.getItem('tokenExpiration');
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      const isCoach = localStorage.getItem('isCoach');
+      let setIsLoggedIn=false
+      let setIsCoach=false
 
-      if (!token || !userId || !tokenExpiration || !userEmail) {
+      if (!token || !userId || !userEmail) {
         return;
+      }
+
+      if(isLoggedIn==='true'){
+        setIsLoggedIn = true;
+      }
+      if(isCoach==='true'){
+        setIsCoach = true;
       }
 
       state.userId = userId;
       state.token = token;
       state.userEmail = userEmail;
-      state.isLoggedIn = true;
+      state.isLoggedIn = setIsLoggedIn;
+      state.isCoach = setIsCoach;
+
+    },
+    setIsCoach(state, action) {
+      if (action.payload !== null) {
+        state.isCoach = true;
+        localStorage.setItem('isCoach', 'true');
+      } else {
+        localStorage.setItem('isCoach', 'false');
+        state.isCoach = false;
+      }
     },
   },
 });
