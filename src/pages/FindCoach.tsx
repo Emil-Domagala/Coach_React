@@ -6,6 +6,9 @@ import useHTTPCoach from '../hooks/use-http-coach';
 import { useEffect } from 'react';
 
 const HireCoachPage = () => {
+  const body = document.querySelector('body');
+
+  body!.setAttribute('class', 'bgc-one');
   const { loadCoaches } = useHTTPCoach();
 
   useEffect(() => {

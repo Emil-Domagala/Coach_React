@@ -8,9 +8,9 @@ const Footer = () => {
     <footer>
       <div className={`container ${classes.wrapper}`}>
         <div className={classes['top-footer']}>
-          <div className={classes['logo-wrapper']}>
+          <a href='/' className={classes['logo-wrapper']}>
             <img src={Logo} alt="" />
-          </div>
+          </a>
           <div className={classes.terms}>
             <p>
               Copyright &copy; {year} this is a copy of{' '}

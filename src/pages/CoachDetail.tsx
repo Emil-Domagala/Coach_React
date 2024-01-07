@@ -4,21 +4,16 @@ import CoachDetailContent from '../components/CoachDetail/CoachDetailContent';
 import { useLoaderData } from 'react-router-dom';
 
 const CoachDetailPage = () => {
-  const selectedCoach = useLoaderData();
+  const body = document.querySelector('body');
 
-  const nowThere = () => {
-    if (selectedCoach) {
-      console.log(selectedCoach);
-    }
-  };
+  body!.setAttribute('class', 'bgc-two');
+  const selectedCoach = useLoaderData();
 
   return (
     <>
       <Navigation mode="two" />
       <CoachDetailContent selectedCoach={selectedCoach} />
-      <button onClick={nowThere}>dwef</button>
       <article />
-      <div style={{ height: '500px' }}>hhhh</div>
       <Footer />
     </>
   );

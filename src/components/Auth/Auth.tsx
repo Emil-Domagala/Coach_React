@@ -5,11 +5,14 @@ import useAuth from '../../hooks/use-auth';
 import Input from '../UI/Input';
 import Form from '../UI/Form';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { userActions } from '../../store/slices/user';
 
 const Login = () => {
   const navigate = useNavigate();
   const [mode, setMode] = useState('LOGIN');
   const { authHandler } = useAuth();
+  const dispatch = useDispatch();
 
   const modeHandler = () => {
     if (mode === 'LOGIN') {
@@ -36,7 +39,7 @@ const Login = () => {
     inputBlurHandler: passwordBlurHandler,
     valueChangeHandler: passwordChangeHandler,
     clearInputHandler: clearPasswordHandler,
-  } = useInputValidation((value: any) => value.trim().length > 6);
+  } = useInputValidation((value: any) => value.trim().length >= 6);
 
   let formIsValid = false;
 
@@ -44,18 +47,21 @@ const Login = () => {
     formIsValid = true;
   }
 
-  const formSubmitionHandler = (e: any) => {
+  const formSubmitionHandler = async (e: any) => {
     e.preventDefault();
 
     if (!formIsValid) {
       return;
     }
 
-    authHandler(mode, entredEmail, entredPassword);
+    await authHandler(mode, entredEmail, entredPassword);
 
     clearEmailHandler();
     clearPasswordHandler();
     if (mode === 'LOGIN') {
+      setTimeout(function () {
+        dispatch(userActions.logout());
+      }, 1000 * 60 * 60);
       navigate('/');
     }
   };

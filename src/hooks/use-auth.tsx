@@ -33,22 +33,36 @@ const useAuth = () => {
 
         const data = await response.json();
 
-        const expiresIn = +data.expiresIn * 1000;
-        const expirationDate = new Date().getTime() + expiresIn;
-
         const userData = {
           idToken: data.idToken,
           localId: data.localId,
-          expirationDate: expirationDate,
-          userEmail:userEmail
+          userEmail: userEmail,
         };
         dispatch(userActions.login(userData));
+        await checkIfIsCoach(data.localId);
       } catch (err: any) {
         setError(err.message || 'Something went wrong!');
       }
     },
     [],
   );
+  const checkIfIsCoach = useCallback(async (userId: string) => {
+    try {
+      const response = await fetch(
+        `https://react-coach-page-default-rtdb.europe-west1.firebasedatabase.app/coaches/${userId}.json`,
+      );
+      const responseData = await response.json();
+
+      
+      if (!response.ok) {
+        const error = new Error(responseData.error || 'Failed to fetch!');
+        throw error;
+      }
+      dispatch(userActions.setIsCoach(responseData));
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
 
   return { authHandler: authHandler };
 };

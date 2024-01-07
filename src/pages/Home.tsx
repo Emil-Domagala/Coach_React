@@ -8,6 +8,9 @@ import Navigation from '../components/Navigation/Navigation';
 import Footer from '../components/Footer/Footer';
 
 const HomePage = () => {
+  const body = document.querySelector('body');
+
+  body!.setAttribute('class', 'bgc-one');
   return (
     <>
       <Navigation mode='main'/>

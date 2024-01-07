@@ -18,25 +18,35 @@ html {
 
 body {
   font-size: 1.8rem;
-font-family: 'Montserrat', sans-serif;
-  background-color: var(--background);
+  font-family: 'Montserrat', sans-serif;
 }
 
-#root{
+#root {
   display: flex;
   flex-direction: column;
   margin: 0;
   min-height: 100vh;
 }
 
-article{flex:1}
+article {
+  flex: 1;
+}
+
+.bgc-one {
+  background-color: var(--background);
+}
+
+.bgc-two {
+  background-color: var(--background-light);
+}
 
 .container {
   margin: auto;
   width: 100%;
 }
 
-section,footer {
+section,
+footer {
   padding: 0 4rem;
 }
 
@@ -61,7 +71,7 @@ section,footer {
   .container {
     width: 720px;
   }
-  .section-title{
+  .section-title {
     font-size: 5rem;
   }
 }

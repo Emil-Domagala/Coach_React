@@ -7,11 +7,22 @@ import { userActions } from '../../../store/slices/user';
 const NavSlider = (props: { isActive: boolean }) => {
   const location = useLocation().pathname;
   const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
+  const isCoach = useSelector((state: any) => state.user.isCoach);
   const dispatch = useDispatch();
 
   const logoutHandler = () => {
     dispatch(userActions.logout());
   };
+
+  const Messages = isLoggedIn && isCoach && (
+    <li
+      className={`${classes['slider-list__link']} ${
+        location === '/messages' ? classes.current : ''
+      }`}
+    >
+      <Link to="/messages">Messages</Link>
+    </li>
+  );
 
   return (
     <div
@@ -35,22 +46,16 @@ const NavSlider = (props: { isActive: boolean }) => {
         >
           <Link to="/coach">Find your coach</Link>
         </li>
-        <li
-          className={`${classes['slider-list__link']} ${
-            location === '/join' ? classes.current : ''
-          }`}
-        >
-          <Link to="/join">Become a coach</Link>
-        </li>
-        {isLoggedIn && (
+        {isCoach === false && (
           <li
             className={`${classes['slider-list__link']} ${
-              location === '/messages' ? classes.current : ''
+              location === '/join' ? classes.current : ''
             }`}
           >
-            <Link to="/messages">Messages</Link>
+            <Link to="/join">Become a coach</Link>
           </li>
         )}
+        {Messages}
         {!isLoggedIn && (
           <li
             className={`${classes['slider-list__link']} ${

@@ -33,11 +33,9 @@ const CoachesWrapper = () => {
     );
 
   return (
-    <>
       <div className={`container`}>
         <div className={classes.wrapper}>{display}</div>
       </div>
-    </>
   );
 };
 
