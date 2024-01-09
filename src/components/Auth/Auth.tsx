@@ -61,7 +61,7 @@ const Login = () => {
     if (mode === 'LOGIN') {
       setTimeout(function () {
         dispatch(userActions.logout());
-      }, 1000 * 60 * 60);
+      }, 3600000);
       navigate('/');
     }
   };

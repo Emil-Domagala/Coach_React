@@ -60,6 +60,19 @@ footer {
   }
 }
 
+.logout-btn {
+  font-size: 1.6rem;
+  background-color: transparent;
+  line-height: 150%;
+  color: var(--white);
+  border-bottom: 1px solid var(--white);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
 @media (min-width: 576px) {
   .terms {
     margin: 0 auto;
