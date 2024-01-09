@@ -3,7 +3,7 @@ import { coachesActions } from '../store/slices/coaches';
 import { useDispatch } from 'react-redux';
 
 const useHTTPCoach = () => {
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
 
@@ -43,6 +43,7 @@ const useHTTPCoach = () => {
       };
 
       try {
+        setIsLoading(true);
         const response = await fetch(
           `https://react-coach-page-default-rtdb.europe-west1.firebasedatabase.app/coaches/${userId}.json?auth=${token}`,
           {
@@ -54,10 +55,13 @@ const useHTTPCoach = () => {
         const responseData = await response.json();
 
         if (!response.ok) {
+          setIsLoading(false);
           throw new Error(responseData.error || 'Failed to fetch!');
         }
+        setIsLoading(false);
       } catch (err: any) {
-        setError(err.message || 'Something went wrong!');
+        setIsLoading(false);
+        setError(err || 'Something went wrong!');
       }
     },
     [],
@@ -65,14 +69,15 @@ const useHTTPCoach = () => {
 
   const loadCoaches = useCallback(async () => {
     try {
+      setIsLoading(true);
       const response = await fetch(
         'https://react-coach-page-default-rtdb.europe-west1.firebasedatabase.app/coaches.json',
       );
       const responseData = await response.json();
 
       if (!response.ok) {
-        const error = new Error(responseData.error || 'Failed to fetch!');
-        throw error;
+        setIsLoading(false);
+        throw new Error(responseData.error || 'Failed to fetch!');
       }
 
       for (const key in responseData) {
@@ -88,13 +93,20 @@ const useHTTPCoach = () => {
         };
 
         dispatch(coachesActions.addCoaches(coach));
+        setIsLoading(false);
       }
-    } catch (err) {
-      console.log(err);
+    } catch (err: any) {
+      setIsLoading(false);
+      setError(err || 'Something went wrong!');
     }
   }, []);
 
-  return { registerCoach: registerCoach, loadCoaches: loadCoaches };
+  return {
+    registerCoach: registerCoach,
+    loadCoaches: loadCoaches,
+    isLoading,
+    hasError: error,
+  };
 };
 
 export default useHTTPCoach;

@@ -33,7 +33,7 @@ const coachesSlice = createSlice({
     filterCoaches(state, action) {
       if (action.payload.allCoaches.length === 0) {
         state.foundNoCoaches = true;
-        console.log('all coaches empty');
+        console.log('there are no coaches');
         return;
       }
 
@@ -43,13 +43,11 @@ const coachesSlice = createSlice({
       ) {
         state.filtredCoaches = action.payload.allCoaches;
         state.foundNoCoaches = false;
-        console.log('no need to filter');
+        console.log('showing all coaches');
         return;
       }
 
       let newFiltredCoaches: any;
-
-      console.log(action.payload);
       if (
         action.payload.allCoaches !== 0 &&
         action.payload.entredVal.trim() !== '' &&
