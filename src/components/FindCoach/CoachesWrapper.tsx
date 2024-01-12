@@ -1,19 +1,24 @@
 import CoachCard from './CoachCard';
 import classes from './CoachesWrapper.module.scss';
-
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-
-
-const CoachesWrapper = () => {
- 
+const CoachesWrapper = (props: { onSaveCoaches: any }) => {
+  useEffect(() => {
+    props.onSaveCoaches();
+  }, []);
   const filtredCoaches = useSelector(
     (state: any) => state.coaches.filtredCoaches,
+  );
+  const stateOfCoachFinding = useSelector(
+    (state: any) => state.coaches.stateOfCoachFinding,
   );
 
   const display =
     filtredCoaches.length === 0 ? (
-      <p>im sorry no coaches yet</p>
+      <div className={classes.info}>
+        <p>{stateOfCoachFinding}</p>
+      </div>
     ) : (
       filtredCoaches.map(
         (coach: any) =>
@@ -33,11 +38,10 @@ const CoachesWrapper = () => {
     );
 
   return (
-      <div className={`container`}>
-        <div className={classes.wrapper}>{display}</div>
-      </div>
+    <div className={`container`}>
+      <div className={classes.wrapper}>{display}</div>
+    </div>
   );
 };
 
 export default CoachesWrapper;
-

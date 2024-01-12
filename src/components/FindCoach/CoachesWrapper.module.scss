@@ -1,8 +1,17 @@
+@use '../../_colors.css';
 .wrapper {
   display: flex;
   flex-direction: column;
   margin: 40px 20px 0 20px;
   gap: 2rem;
+}
+
+.info {
+  margin: 0 auto;
+  p{
+    text-align: center;
+color: var(--main-color);
+  }
 }
 
 @media (min-width: 768px) {

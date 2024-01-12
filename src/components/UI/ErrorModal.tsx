@@ -1,23 +1,41 @@
 import classes from './ErrorModal.module.scss';
-import { createPortal } from 'react-dom';
+import Card from './Card';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const ErrorModal = (props: { hasError: any }) => {
-  const modalEl: any = document.getElementById('modal');
+const ErrorModal = (props: { errorMessage?: string }) => {
+  const [showModal, setShowModal] = useState(true);
+  const navigate = useNavigate();
+  const errorHandler = () => {
+    setShowModal(false);
+    if(!props.errorMessage){
+        navigate('/');
+    }
+  };
 
-//   console.log(props.hasError)
+  let message = 'An error accured. Please try again later.';
+  if (props.errorMessage) {
+    message = props.errorMessage;
+  }
 
-  const content = (
+  return (
     <>
-      <div className={classes.bgc} />
-      <div className={classes.card}>
-        <h2 className={classes.title}>An Error Accured</h2>
-        <p className={classes.text}>404 or smthing</p>
-        <button>Please try later</button>
-      </div>
+      {showModal && (
+        <Card className={classes.card}>
+          <>
+            <div className={classes.bgc} />
+            <h2 className={classes.title}>Error</h2>
+            <p className={classes.text}>
+              {message}
+            </p>
+            <button className={classes.button} onClick={errorHandler}>
+              Ok
+            </button>
+          </>
+        </Card>
+      )}
     </>
   );
-
-  return <>{createPortal(content, modalEl)}</>;
 };
 
 export default ErrorModal;

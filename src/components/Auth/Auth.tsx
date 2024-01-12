@@ -4,15 +4,12 @@ import useInputValidation from '../../hooks/use-input-validation';
 import useAuth from '../../hooks/use-auth';
 import Input from '../UI/Input';
 import Form from '../UI/Form';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { userActions } from '../../store/slices/user';
+import ErrorModal from '../UI/ErrorModal';
 
 const Login = () => {
-  const navigate = useNavigate();
   const [mode, setMode] = useState('LOGIN');
-  const { authHandler } = useAuth();
-  const dispatch = useDispatch();
+  const { signup, login, error } = useAuth();
+
 
   const modeHandler = () => {
     if (mode === 'LOGIN') {
@@ -54,16 +51,14 @@ const Login = () => {
       return;
     }
 
-    await authHandler(mode, entredEmail, entredPassword);
-
+    if (mode === 'LOGIN') {
+      login(entredEmail, entredPassword);
+    }
+    if (mode === 'SIGNUP') {
+      signup(entredEmail, entredPassword);
+    }
     clearEmailHandler();
     clearPasswordHandler();
-    if (mode === 'LOGIN') {
-      setTimeout(function () {
-        dispatch(userActions.logout());
-      }, 3600000);
-      navigate('/');
-    }
   };
 
   const header = mode === 'LOGIN' ? 'Log In' : 'Create account';
@@ -104,6 +99,7 @@ const Login = () => {
           {mode === 'LOGIN' ? 'Create account' : 'Log in'}
         </p>
       </div>
+     {error && <ErrorModal errorMessage={error} />}
     </main>
   );
 };

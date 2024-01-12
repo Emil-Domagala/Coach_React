@@ -3,7 +3,6 @@ import MailIcon from '../../icons/Mail';
 import PhoneIcon from '../../icons/Phone';
 
 const Message = (props: any) => {
-  console.log(props);
   return (
     <div className={classes.wrapper}>
       <div className={classes.info}>
