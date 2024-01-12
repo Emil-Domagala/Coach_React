@@ -1,6 +1,7 @@
 import { useState, useCallback } from 'react';
 import { coachesActions } from '../store/slices/coaches';
 import { useDispatch } from 'react-redux';
+import { userActions } from '../store/slices/user';
 
 const useHTTPCoach = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -58,6 +59,7 @@ const useHTTPCoach = () => {
           setIsLoading(false);
           throw new Error(responseData.error || 'Failed to fetch!');
         }
+        dispatch(userActions.setIsCoach(responseData));
         setIsLoading(false);
       } catch (err: any) {
         setIsLoading(false);
@@ -67,43 +69,10 @@ const useHTTPCoach = () => {
     [],
   );
 
-  const loadCoaches = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      const response = await fetch(
-        'https://react-coach-page-default-rtdb.europe-west1.firebasedatabase.app/coaches.json',
-      );
-      const responseData = await response.json();
-
-      if (!response.ok) {
-        setIsLoading(false);
-        throw new Error(responseData.error || 'Failed to fetch!');
-      }
-
-      for (const key in responseData) {
-        const coach = {
-          coachId: key,
-          coachName: responseData[key].coachName,
-          coachLastname: responseData[key].coachLastname,
-          coachPrice: responseData[key].coachPrice,
-          coachUrl: responseData[key].coachUrl,
-          coachDesc: responseData[key].coachDesc,
-          coachWays: responseData[key].waysValue,
-          coachSize: responseData[key].sizeValue,
-        };
-
-        dispatch(coachesActions.addCoaches(coach));
-        setIsLoading(false);
-      }
-    } catch (err: any) {
-      setIsLoading(false);
-      setError(err || 'Something went wrong!');
-    }
-  }, []);
+ 
 
   return {
     registerCoach: registerCoach,
-    loadCoaches: loadCoaches,
     isLoading,
     hasError: error,
   };

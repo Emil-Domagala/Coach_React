@@ -18,6 +18,7 @@
   --navigation: #eee;
   --navigation-hover: #dcdcdc;
   --nav-button: #000;
+  --nav-button-hover-two:#333;
   --light-green: #1acb97;
   --light-green-hover: #09ba86;
   --light-blue: #3cb9ff;
@@ -25,6 +26,8 @@
   --main-color-button: #2d3354;
   --main-color-button-hover: #1e2243;
   --warning:rgb(199, 0, 0);
+  --bgc-semitransparent:rgba(240, 240, 240, 0.8);
+
 }
 
 [data-theme='dark'] {
@@ -34,6 +37,8 @@
   --navigation: #111111;
   --navigation-hover: #242424;
   --nav-button: #fff;
+  --nav-button-hover-two:#ddd;
   --main-color-button: #fff;
   --main-color-button-hover: #eee;
+--bgc-semitransparent:rgba(51, 51, 51, 0.8);
 }

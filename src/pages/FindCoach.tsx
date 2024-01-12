@@ -2,43 +2,50 @@ import Navigation from '../components/Navigation/Navigation';
 import CoachesWrapper from '../components/FindCoach/CoachesWrapper';
 import Footer from '../components/Footer/Footer';
 import Filter from '../components/FindCoach/Filter';
-import useHTTPCoach from '../hooks/use-http-coach';
-import { useEffect, useState } from 'react';
 import LoadingModal from '../components/UI/LoadingModal';
-// import ErrorModal from '../components/UI/ErrorModal';
+import ErrorModal from '../components/UI/ErrorModal';
+import { useDispatch } from 'react-redux';
+import { coachesActions } from '../store/slices/coaches';
+import { Await, defer, useLoaderData, json } from 'react-router-dom';
+import { Suspense } from 'react';
 
 const HireCoachPage = () => {
-  const [mode, setMode]: [mode: null | string, setMode: any] = useState(null);
+  const dispatch = useDispatch();
   const body = document.querySelector('body');
 
   body!.setAttribute('class', 'bgc-one');
-  const { loadCoaches, isLoading, hasError } = useHTTPCoach();
-
-  useEffect(() => {
-    loadCoaches();
-  }, [loadCoaches]);
-
-  console.log(hasError)
-  console.log(isLoading)
-
-  // if (isLoading===true && hasError===null) {
-  //   setMode('loading');
-  // }
-  // if (!isLoading && hasError) {
-  //   setMode('error');
-  // }
-  // if (!isLoading && !hasError) {
-  //   setMode(null);
-  // }
+  const { loadedCoaches }: any = useLoaderData();
 
   return (
     <>
-      {/* {hasError && <ErrorModal hasError={hasError} />} */}
-      {isLoading && <LoadingModal text="Loading..." mode={mode} />}
       <Navigation mode="two" />
       <main>
         <Filter />
-        <CoachesWrapper />
+        <Suspense fallback={<LoadingModal />}>
+          <Await resolve={loadedCoaches} errorElement={<ErrorModal />}>
+            {(loadedCoaches) =>
+              loadedCoaches && (
+                <CoachesWrapper
+                  onSaveCoaches={() => {
+                    for (const key in loadedCoaches) {
+                      const coach = {
+                        coachId: key,
+                        coachName: loadedCoaches[key].coachName,
+                        coachLastname: loadedCoaches[key].coachLastname,
+                        coachPrice: loadedCoaches[key].coachPrice,
+                        coachUrl: loadedCoaches[key].coachUrl,
+                        coachDesc: loadedCoaches[key].coachDesc,
+                        coachWays: loadedCoaches[key].waysValue,
+                        coachSize: loadedCoaches[key].sizeValue,
+                      };
+                      dispatch(coachesActions.addCoaches(coach));
+                    }
+                  }}
+                />
+              )
+            }
+          </Await>
+        </Suspense>
       </main>
       <article />
       <Footer />
@@ -47,3 +54,22 @@ const HireCoachPage = () => {
 };
 
 export default HireCoachPage;
+
+const loadCoaches = async () => {
+  const response = await fetch(
+    'https://react-coach-page-default-rtdb.europe-west1.firebasedatabase.app/coaches.json',
+  );
+
+  if (!response.ok) {
+    throw json({ message: 'Could not fetch coaches.' });
+  } else {
+    const responseData = await response.json();
+    return responseData;
+  }
+};
+
+export function loaderFindCoach() {
+  return defer({
+    loadedCoaches: loadCoaches(),
+  });
+}

@@ -7,7 +7,15 @@ const Card = (props: { children: JSX.Element,className?:any }) => {
   const { children } = props;
 
   return (
-    <>{createPortal(<div className={`${classes.card} ${props.className}`}>{children}</div>, modalEl)}</>
+    <>
+      {createPortal(
+        <>
+          <div className={classes.bgc} />
+          <div className={`${classes.card} ${props.className}`}>{children}</div>
+        </>,
+        modalEl,
+      )}
+    </>
   );
 };
 export default Card;

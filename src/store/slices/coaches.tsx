@@ -3,11 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState: {
   coaches: object[];
   filtredCoaches: object[];
-  foundNoCoaches: boolean;
+  stateOfCoachFinding: string;
+  initialized: boolean;
 } = {
   coaches: [],
   filtredCoaches: [],
-  foundNoCoaches: false,
+  stateOfCoachFinding: '',
+  initialized: false,
 };
 
 const coachesSlice = createSlice({
@@ -15,7 +17,6 @@ const coachesSlice = createSlice({
   initialState: initialState,
   reducers: {
     addCoaches(state, action) {
-
       if (state.coaches.length === 0) {
         state.coaches = [action.payload];
         return;
@@ -28,12 +29,12 @@ const coachesSlice = createSlice({
       if (!existingIDs.includes(action.payload.coachId)) {
         state.coaches.push(action.payload);
       }
+      state.initialized = true;
     },
 
     filterCoaches(state, action) {
       if (action.payload.allCoaches.length === 0) {
-        state.foundNoCoaches = true;
-        console.log('there are no coaches');
+        state.stateOfCoachFinding = 'No coaches yet';
         return;
       }
 
@@ -42,8 +43,6 @@ const coachesSlice = createSlice({
         action.payload.selectedValueId === 'empty'
       ) {
         state.filtredCoaches = action.payload.allCoaches;
-        state.foundNoCoaches = false;
-        console.log('showing all coaches');
         return;
       }
 
@@ -82,13 +81,10 @@ const coachesSlice = createSlice({
       }
 
       if (newFiltredCoaches.length === 0) {
-        state.foundNoCoaches = true;
         state.filtredCoaches = newFiltredCoaches;
-        console.log('no more coaches after filters');
+        state.stateOfCoachFinding = 'Found no coaches.';
         return;
       }
-      console.log('found coaches after filters');
-      state.foundNoCoaches = false;
       state.filtredCoaches = newFiltredCoaches;
     },
   },

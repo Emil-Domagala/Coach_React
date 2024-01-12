@@ -1,9 +1,7 @@
 import { useState, useCallback } from 'react';
-import { useDispatch } from 'react-redux';
 
 const useHTTPmessage = () => {
-  // const [isLoading, setIsLoading] = useState(false);
-  const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const sendMessage = useCallback(
@@ -26,6 +24,7 @@ const useHTTPmessage = () => {
       };
 
       try {
+        setIsLoading(true)
         const response = await fetch(
           `https://react-coach-page-default-rtdb.europe-west1.firebasedatabase.app/messages/${colectedData.userId}/${messageId}.json`,
           {
@@ -39,7 +38,9 @@ const useHTTPmessage = () => {
         if (!response.ok) {
           throw new Error(responseData.error || 'Failed to fetch!');
         }
+        setIsLoading(false);
       } catch (err: any) {
+        setIsLoading(false);
         setError(err.message || 'Something went wrong!');
       }
     },

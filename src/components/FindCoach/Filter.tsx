@@ -23,12 +23,12 @@ const options = [
   },
 ];
 
-
-const Filter = (props: any) => {
+const Filter = () => {
   const [selectedValue, setSelectedValue] = useState('Please Choose...');
   const [entredVal, setEntredVal] = useState('');
   const [showList, setShowList] = useState(false);
   const allCoaches = useSelector((state: any) => state.coaches.coaches);
+  const initialized = useSelector((state: any) => state.coaches.initialized);
   const dispatch = useDispatch();
 
   const changeValHandler = (e: any) => {
@@ -50,13 +50,15 @@ const Filter = (props: any) => {
   };
 
   useEffect(() => {
-    const data = {
-      entredVal: '',
-      selectedValueId: 'empty',
-      allCoaches,
-    };
-    dispatch(coachesActions.filterCoaches(data));
-  },[allCoaches]);
+    if (initialized === true) {
+      const data = {
+        entredVal: '',
+        selectedValueId: 'empty',
+        allCoaches,
+      };
+      dispatch(coachesActions.filterCoaches(data));
+    }
+  }, [initialized]);
 
   const filterCoachesHandler = (event: any) => {
     event.preventDefault();

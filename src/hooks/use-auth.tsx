@@ -1,70 +1,89 @@
 import { useState, useCallback } from 'react';
 import { userActions } from '../store/slices/user';
 import { useDispatch } from 'react-redux';
+import { json } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const useAuth = () => {
   //   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
-  const authHandler = useCallback(
-    async (mode: string, userEmail: string, userPassword: string) => {
-      let URL =
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=';
-      const API_KEY = 'AIzaSyDdoiMPQNY-af7SLM5Shnii9GRzpL5Ymks';
-
-      if (mode === 'LOGIN') {
-        URL =
-          'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=';
-      }
-
-      try {
-        const response = await fetch(URL + API_KEY, {
+  const navigate = useNavigate();
+  const login = useCallback(async (userEmail: string, userPassword: string) => {
+    try {
+      const response = await fetch(
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDdoiMPQNY-af7SLM5Shnii9GRzpL5Ymks',
+        {
           method: 'POST',
           body: JSON.stringify({
             email: userEmail,
             password: userPassword,
             returnSecureToken: true,
           }),
-        });
+        },
+      );
+      if (!response.ok) {
+        throw json({ message: 'Could not login.' });
+      }
+      const data = await response.json();
+      const userData = {
+        idToken: data.idToken,
+        localId: data.localId,
+        userEmail: userEmail,
+      };
+      checkIfIsCoach(data.localId);
+      dispatch(userActions.login(userData));
+      navigate('/');
+    } catch (err: any) {
+      setError(
+        err.message || 'Failed to login. Please check your email and password!',
+      );
+    }
+  }, []);
+
+  const signup = useCallback(
+    async (userEmail: string, userPassword: string) => {
+      try {
+        const response = await fetch(
+          'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDdoiMPQNY-af7SLM5Shnii9GRzpL5Ymks',
+          {
+            method: 'POST',
+            body: JSON.stringify({
+              email: userEmail,
+              password: userPassword,
+              returnSecureToken: true,
+            }),
+          },
+        );
 
         if (!response.ok) {
-          throw new Error('Request failed!');
+          throw json({ message: 'Could not register.' });
         }
 
-        const data = await response.json();
-
-        const userData = {
-          idToken: data.idToken,
-          localId: data.localId,
-          userEmail: userEmail,
-        };
-        dispatch(userActions.login(userData));
-        await checkIfIsCoach(data.localId);
+        login(userEmail, userPassword);
       } catch (err: any) {
-        setError(err.message || 'Something went wrong!');
+        setError(
+          err.message ||
+            'Failed to create account. This email is already in use',
+        );
       }
     },
     [],
   );
-  const checkIfIsCoach = useCallback(async (userId: string) => {
-    try {
-      const response = await fetch(
-        `https://react-coach-page-default-rtdb.europe-west1.firebasedatabase.app/coaches/${userId}.json`,
-      );
-      const responseData = await response.json();
 
-      
-      if (!response.ok) {
-        const error = new Error(responseData.error || 'Failed to fetch!');
-        throw error;
-      }
+  const checkIfIsCoach = useCallback(async (userId: string) => {
+    const response = await fetch(
+      `https://react-coach-page-default-rtdb.europe-west1.firebasedatabase.app/coaches/${userId}.json`,
+    );
+    if (!response.ok) {
+      throw json({ message: 'Could not fetch coaches.' });
+    } else {
+      const responseData = await response.json();
       dispatch(userActions.setIsCoach(responseData));
-    } catch (err) {
-      console.log(err);
     }
   }, []);
 
-  return { authHandler: authHandler };
+  return { signup: signup, login: login, error };
 };
 
 export default useAuth;
