@@ -6,15 +6,16 @@ import MarketingIcon from '../../../icons/MarketingIcon';
 import OperationsIcon from '../../../icons/OperationsIcon';
 import ProductsIcon from '../../../icons/ProductsIcon';
 import RoadSign from '../../../icons/RoadSign';
-
+import SectionTitleHome from '../../UI/SectionTitleHome';
 
 const Money = () => {
   return (
     <section id={`${classes.money} money`}>
       <div className="container">
-        <h2 className="section-title ">
-          Your Coach Will Help You <span>Execute a 6-Step Growth Plan</span>
-        </h2>
+        <SectionTitleHome
+          main="Your Coach Will Help You"
+          gold="Execute a 6-Step Growth Plan"
+        />
         <p className={classes['top-text']}>
           Whether you need help with all 6 of these steps or just a few, our
           coaches can help.

@@ -1,28 +1,41 @@
 @use '../../_colors.css';
 
 .card {
-  position: fixed;
-  top: 50%;
-  left: 50%;
+  position: static;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  border: none;
   background-color: var(--background-light);
   box-shadow: 0px 0px 10px 2px var(--navigation);
   transform: translate(-50%, -50%);
   z-index: 99999;
 }
 
-.bgc{
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: var(--bgc-semitransparent);
-    z-index: 88888;
+.bgc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bgc-semitransparent);
+  z-index: 88888;
+}
+
+@keyframes fade-in-sizeup {
+  0% {
+    // transform: scale(0.3);
+    opacity: 0;
+  }
+  100% {
+    // transform: scale(1);
+    opacity: 1;
+  }
 }
