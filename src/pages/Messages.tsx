@@ -15,11 +15,13 @@ const MessagesPage = () => {
   return (
     <>
       <Navigation mode="two" />
-      <Suspense fallback={<LoadingModal />}>
-        <Await resolve={loadedMessages} errorElement={<ErrorModal />}>
-          {(loadMessages) => <MessagesWrapper loadMessages={loadMessages} />}
-        </Await>
-      </Suspense>
+      <main>
+        <Suspense fallback={<LoadingModal />}>
+          <Await resolve={loadedMessages} errorElement={<ErrorModal />}>
+            {(loadMessages) => <MessagesWrapper loadMessages={loadMessages} />}
+          </Await>
+        </Suspense>
+      </main>
       <article />
       <Footer />
     </>

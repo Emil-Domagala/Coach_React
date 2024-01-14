@@ -59,11 +59,15 @@ const FormContact = () => {
 
   const submitHandler = (e: any) => {
     e.preventDefault();
+
     if (!formIsValid) {
+        nameBlurHandler()
+        phoneBlurHandler()
+        emailBlurHandler()
+        messageBlurHandler()
       return;
     }
 
-    ///magic here
 
     const colectedData = {
       entredName: entredName,

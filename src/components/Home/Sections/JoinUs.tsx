@@ -1,5 +1,6 @@
 import classes from './JoinUs.module.scss';
 import Button from '../../UI/Button';
+import SectionTitleHome from '../../UI/SectionTitleHome';
 
 const JoinUs = () => {
   return (
@@ -9,10 +10,10 @@ const JoinUs = () => {
         <div className={classes['join-us']}>
           <div className={`${classes['wrapper']} container`}>
             <div className={classes.left}>
-              <h2 className="section-title">
-                Are you interested in becoming a Business Made Simple Business
-                Coach?
-              </h2>
+              <SectionTitleHome
+                main="Are you interested in becoming a Business Made Simple Business
+                  Coach?"
+              />
               <p className={classes['text-top']}>
                 If you want to be unstoppable as a business coach, you need
                 three things:

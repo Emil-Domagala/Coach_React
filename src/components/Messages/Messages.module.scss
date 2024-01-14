@@ -38,7 +38,23 @@
   }
 }
 
-.message{
-    max-height: 200px;
-    overflow: scroll;
+.message {
+  max-height: 200px;
+  overflow: scroll;
+}
+
+@media (min-width: 992px) {
+  .info {
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+    margin-bottom: 20px;
+    h3 {
+      margin: 0;
+    }
+    &__contact {
+      align-items: center;
+      margin: 0;
+    }
+  }
 }

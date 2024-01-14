@@ -3,23 +3,23 @@ import Card from './Card';
 
 const LoadingModal = (props: any) => {
   return (
-    <Card className={classes.card}>
-      <>
-        <div className={classes.spiner}>
-          <div className={classes['lds-roller']}>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+      <Card className={classes.card}>
+        <>
+          <div className={classes.spiner}>
+            <div className={classes['lds-roller']}>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
           </div>
-        </div>
-        <p>{props.text}</p>
-      </>
-    </Card>
+          <p>{props.text}</p>
+        </>
+      </Card>
   );
 };
 
