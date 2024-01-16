@@ -7,6 +7,7 @@ import OperationsIcon from '../../../icons/OperationsIcon';
 import ProductsIcon from '../../../icons/ProductsIcon';
 import RoadSign from '../../../icons/RoadSign';
 import SectionTitleHome from '../../UI/SectionTitleHome';
+import { motion } from 'framer-motion';
 
 const Money = () => {
   return (
@@ -22,7 +23,12 @@ const Money = () => {
         </p>
         <div className={classes.steps}>
           <div className={classes['steps__column']}>
-            <div className={classes.step}>
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className={classes.step}
+            >
               <div className={classes['icon-bgc']}>
                 <div className={classes.icon}>
                   <RoadSign />
@@ -32,8 +38,13 @@ const Money = () => {
                 <span>LEADERSHIP: </span>Identify and prioritize 3 initiatives
                 that will make your business more money.
               </p>
-            </div>
-            <div className={classes.step}>
+            </motion.div>
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className={classes.step}
+            >
               <div className={classes['icon-bgc']}>
                 <div className={classes.icon}>
                   <Bitcoin />
@@ -44,8 +55,13 @@ const Money = () => {
                 you and your team confidently close more deals without being
                 salesy.
               </p>
-            </div>
-            <div className={classes.step}>
+            </motion.div>
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className={classes.step}
+            >
               <div className={classes['icon-bgc']}>
                 <div className={classes.icon}>
                   <OperationsIcon />
@@ -56,10 +72,15 @@ const Money = () => {
                 system that will keep your operation costs low and your
                 productivity levels high.
               </p>
-            </div>
+            </motion.div>
           </div>
           <div className={classes['steps__column']}>
-            <div className={classes.step}>
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className={classes.step}
+            >
               <div className={classes['icon-bgc']}>
                 <div className={classes.icon}>
                   <MarketingIcon />
@@ -69,8 +90,13 @@ const Money = () => {
                 <span>MARKETING: </span>Create a marketing funnel to generate
                 consistent business and predictable cash flow.
               </p>
-            </div>
-            <div className={classes.step}>
+            </motion.div>
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className={classes.step}
+            >
               <div className={classes['icon-bgc']}>
                 <div className={classes.icon}>
                   <ProductsIcon />
@@ -81,8 +107,13 @@ const Money = () => {
                 product briefs to ensure your product offering is highly
                 lucrative.
               </p>
-            </div>
-            <div className={classes.step}>
+            </motion.div>
+            <motion.div
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className={classes.step}
+            >
               <div className={classes['icon-bgc']}>
                 <div className={classes.icon}>
                   <CashIcon />
@@ -92,7 +123,7 @@ const Money = () => {
                 <span>CASH FLOW: </span>Learn to use 5 checking accounts so you
                 can manage your finances with zero confusion or stress.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
         <Button mode="gold" to="/coach" location="center">

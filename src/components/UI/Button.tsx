@@ -1,5 +1,6 @@
 import { Link, To } from 'react-router-dom';
 import classes from './Button.module.scss';
+import { motion } from 'framer-motion';
 
 const Button = (props: {
   children: String;
@@ -12,9 +13,14 @@ const Button = (props: {
     <div className={classes[location]}>
       {to && (
         <Link to={to} className={classes.link}>
-          <button className={`${classes.button} ${classes[mode]}`}>
+          <motion.button
+            initial={{ scale: 0.4 }}
+            whileInView={{ scale: 1 }}
+            transition={{ delay: 0.2, duration: 0.5, type: 'spring' }}
+            className={`${classes.button} ${classes[mode]}`}
+          >
             <div>{children}</div>
-          </button>
+          </motion.button>
         </Link>
       )}
       {!to && (
