@@ -33,8 +33,11 @@
     font-weight: 600;
     line-height: 6rem;
     margin-bottom: 2rem;
-    span {
+    .gold {
       color: var(--gold);
+    }
+    span{
+      display: block;
     }
   }
   p {

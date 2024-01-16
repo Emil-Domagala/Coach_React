@@ -1,14 +1,30 @@
 import classes from './Hero.module.scss';
 import Button from '../../UI/Button';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <header id='header'>
+    <header id="header">
       <div className={classes.hero}>
         <div className={classes['hero__bgc']}></div>
         <div className={classes['hero__text-container']}>
           <h1>
-            Business Coaching for <span>Busy Entrepreneurs</span>
+            <motion.span
+              initial={{ y: 30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className={classes.main}
+            >
+              Business Coaching for 
+            </motion.span>
+            <motion.span
+              initial={{ y: -30, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className={classes.gold}
+            >
+              Busy Entrepreneurs
+            </motion.span>
           </h1>
           <p>
             Work less, make more, and spend more time doing the things you truly

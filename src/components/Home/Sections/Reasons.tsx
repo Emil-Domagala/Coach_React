@@ -11,7 +11,7 @@ const Reasons = () => {
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
           className={classes.reason}
         >
           <div className={classes.img}>
@@ -26,7 +26,7 @@ const Reasons = () => {
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
           className={classes.reason}
         >
           <div className={classes.img}>
@@ -38,7 +38,7 @@ const Reasons = () => {
         <motion.div
           initial={{ y: 30, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ delay: 0.4, duration: 0.5 }}
           className={classes.reason}
         >
           <div className={classes.img}>
