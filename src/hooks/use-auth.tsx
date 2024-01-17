@@ -31,6 +31,11 @@ const useAuth = () => {
         localId: data.localId,
         userEmail: userEmail,
       };
+      const expiresIn = +data.expiresIn * 1000;
+      const expirationDate = new Date().getTime() + expiresIn;
+      const expirationDateString = expirationDate.toString()
+      localStorage.setItem('tokenExpiration', expirationDateString);
+
       checkIfIsCoach(data.localId);
       dispatch(userActions.login(userData));
       navigate('/');
