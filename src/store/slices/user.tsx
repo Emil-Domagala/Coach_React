@@ -28,6 +28,7 @@ const userSlice = createSlice({
       localStorage.removeItem('userEmail');
       localStorage.removeItem('isCoach');
       localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('tokenExpiration');
       state.userId = '';
       state.token = '';
       state.userEmail = '';

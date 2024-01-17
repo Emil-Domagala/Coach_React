@@ -42,11 +42,29 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const tokenExpiration = localStorage.getItem('tokenExpiration');
+  const currentDate =new Date().getTime();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(userActions.autoLogin());
   });
+
+  useEffect(() => {
+    if (!tokenExpiration) {
+      return;
+    }
+
+    const timeLeft = +tokenExpiration - currentDate;
+
+    if(timeLeft <= 0){
+      dispatch(userActions.logout())
+    }
+
+    setTimeout(() => {
+      dispatch(userActions.logout());
+    }, timeLeft);
+  }, [tokenExpiration]);
 
   return <RouterProvider router={router} />;
 }

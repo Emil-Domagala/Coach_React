@@ -54,9 +54,7 @@ const Login = () => {
 
     if (mode === 'LOGIN') {
       login(entredEmail, entredPassword);
-      setTimeout(() => {
-        dispatch(userActions.logout());
-      }, 360000);
+
     }
     if (mode === 'SIGNUP') {
       signup(entredEmail, entredPassword);
