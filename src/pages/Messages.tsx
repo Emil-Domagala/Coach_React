@@ -5,6 +5,7 @@ import { Await, defer, redirect, useLoaderData, json } from 'react-router-dom';
 import { Suspense } from 'react';
 import LoadingModal from '../components/UI/LoadingModal';
 import ErrorModal from '../components/UI/ErrorModal';
+import TopBarMobile from '../components/UI/TopBarMobile';
 
 const MessagesPage = () => {
   const body = document.querySelector('body');
@@ -14,7 +15,7 @@ const MessagesPage = () => {
 
   return (
     <>
-      <Navigation mode="two" />
+      <TopBarMobile />
       <main>
         <Suspense fallback={<LoadingModal />}>
           <Await resolve={loadedMessages} errorElement={<ErrorModal />}>
@@ -23,7 +24,6 @@ const MessagesPage = () => {
         </Suspense>
       </main>
       <article />
-      <Footer />
     </>
   );
 };

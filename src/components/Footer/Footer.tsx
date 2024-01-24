@@ -24,7 +24,10 @@ const Footer = () => {
           <div className={classes.terms}>
             <p>
               Copyright &copy; {year} this is a copy of{' '}
-              <a href="https://hireacoach.com/#">hire a coach</a> page
+              <a href="https://hireacoach.com/#" target="_blank">
+                hire a coach
+              </a>{' '}
+              page
             </p>
           </div>
         </div>

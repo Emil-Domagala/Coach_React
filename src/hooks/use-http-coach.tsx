@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react';
-import { coachesActions } from '../store/slices/coaches';
 import { useDispatch } from 'react-redux';
 import { userActions } from '../store/slices/user';
 

@@ -13,7 +13,6 @@ const HomePage = () => {
   body!.setAttribute('class', 'bgc-one');
   return (
     <>
-      <Navigation mode='main'/>
       <main>
         <Hero />
         <Reasons />
@@ -22,7 +21,6 @@ const HomePage = () => {
         <WithCoach />
         <JoinUs />
       </main>
-      <Footer />
     </>
   );
 };

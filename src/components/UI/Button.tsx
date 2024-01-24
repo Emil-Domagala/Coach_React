@@ -24,7 +24,7 @@ const Button = (props: {
         </Link>
       )}
       {!to && (
-        <button className={`${classes.button} ${classes[mode]}`}>
+        <button className={`${classes.button} ${classes[mode]}`} >
           <div>{children}</div>
         </button>
       )}

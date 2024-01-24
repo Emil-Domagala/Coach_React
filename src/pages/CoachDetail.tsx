@@ -1,5 +1,4 @@
-import Navigation from '../components/Navigation/Navigation';
-import Footer from '../components/Footer/Footer';
+import TopBarMobile from '../components/UI/TopBarMobile';
 import CoachDetailContent from '../components/CoachDetail/CoachDetailContent';
 import { useLoaderData } from 'react-router-dom';
 
@@ -11,10 +10,9 @@ const CoachDetailPage = () => {
 
   return (
     <>
-      <Navigation mode="two" />
+<TopBarMobile/>
       <CoachDetailContent selectedCoach={selectedCoach} />
       <article />
-      <Footer />
     </>
   );
 };

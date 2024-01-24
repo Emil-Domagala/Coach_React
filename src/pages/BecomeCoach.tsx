@@ -1,5 +1,4 @@
-import Navigation from '../components/Navigation/Navigation';
-import Footer from '../components/Footer/Footer';
+import TopBarMobile from '../components/UI/TopBarMobile';
 import BecomeCoach from '../components/BecomeCoach/BecomeCoach';
 import { redirect } from 'react-router-dom';
 import { useLoaderData } from 'react-router-dom';
@@ -12,11 +11,10 @@ const becomeCoachPage = () => {
   body!.setAttribute('class', 'bgc-two');
   return (
     <>
-      <Navigation mode="two" />
+<TopBarMobile/>
       <main>
         <BecomeCoach />
       </main>
-      <Footer />
     </>
   );
 };
