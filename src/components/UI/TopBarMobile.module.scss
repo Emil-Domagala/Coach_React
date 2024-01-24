@@ -1,4 +1,4 @@
-@use '../../../_colors.css';
+@use '../../_colors.css';
 
 .bar {
   height: 100px;
@@ -19,4 +19,8 @@
   }
 }
 
-
+@media (min-width:768px){
+  .bar{
+    display: none;
+  }
+}

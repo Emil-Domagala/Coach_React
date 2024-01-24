@@ -1,6 +1,5 @@
-import Navigation from '../components/Navigation/Navigation';
+import TopBarMobile from '../components/UI/TopBarMobile';
 import CoachesWrapper from '../components/FindCoach/CoachesWrapper';
-import Footer from '../components/Footer/Footer';
 import Filter from '../components/FindCoach/Filter';
 import LoadingModal from '../components/UI/LoadingModal';
 import ErrorModal from '../components/UI/ErrorModal';
@@ -18,7 +17,7 @@ const HireCoachPage = () => {
 
   return (
     <>
-      <Navigation mode="two" />
+      <TopBarMobile />
       <main>
         <Filter />
         <Suspense fallback={<LoadingModal />}>
@@ -48,7 +47,6 @@ const HireCoachPage = () => {
         </Suspense>
       </main>
       <article />
-      <Footer />
     </>
   );
 };
@@ -64,6 +62,7 @@ const loadCoaches = async () => {
     throw json({ message: 'Could not fetch coaches.' });
   } else {
     const responseData = await response.json();
+    
     return responseData;
   }
 };

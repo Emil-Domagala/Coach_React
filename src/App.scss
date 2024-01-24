@@ -49,6 +49,9 @@ section,
 footer {
   padding: 0 4rem;
 }
+footer {
+  z-index: 1000;
+}
 
 .section-title {
   display: flex;

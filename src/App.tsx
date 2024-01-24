@@ -13,6 +13,7 @@ import { useDispatch } from 'react-redux';
 import { userActions } from './store/slices/user';
 import { useEffect } from 'react';
 
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
 
 function App() {
   const tokenExpiration = localStorage.getItem('tokenExpiration');
-  const currentDate =new Date().getTime();
+  const currentDate = new Date().getTime();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -57,8 +58,8 @@ function App() {
 
     const timeLeft = +tokenExpiration - currentDate;
 
-    if(timeLeft <= 0){
-      dispatch(userActions.logout())
+    if (timeLeft <= 0) {
+      dispatch(userActions.logout());
     }
 
     setTimeout(() => {

@@ -1,8 +1,8 @@
-import classes from './NavigationTwo.module.scss';
-import Logo from '../../../assets/icons8-logo.svg';
+import classes from './TopBarMobile.module.scss';
+import Logo from '../../assets/icons8-logo.svg';
 import { Link } from 'react-router-dom';
 
-const NavigationTwo = () => {
+const TopBarMobile = () => {
   return (
     <>
       <div className={classes.bar}>
@@ -17,4 +17,4 @@ const NavigationTwo = () => {
     </>
   );
 };
-export default NavigationTwo;
+export default TopBarMobile;

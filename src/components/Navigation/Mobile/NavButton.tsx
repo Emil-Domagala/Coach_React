@@ -1,12 +1,15 @@
 import classes from './NavButtton.module.scss';
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const NavButton = (props: { isActive: boolean; onClick: () => void }) => {
   const [isWhite, setIsWhite] = useState(false);
+  const path = useLocation().pathname;
+
 
   useEffect(() => {
     isOnHeader();
-  }, []);
+  }, [path]);
 
   const isOnHeader = () => {
     const isHeader = window.scrollY;

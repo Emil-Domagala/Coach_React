@@ -31,6 +31,7 @@ const Filter = () => {
   const initialized = useSelector((state: any) => state.coaches.initialized);
   const dispatch = useDispatch();
 
+
   const changeValHandler = (e: any) => {
     setEntredVal(e.target.value);
   };
