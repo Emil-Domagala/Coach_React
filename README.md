@@ -1,3 +1,5 @@
+link to this page http://edfindcoach.pl/
+
 This app is still in developing. There will be option to create an account, login, becoming a coach and sending messages to coach that we will pick. Data will be stored in firebase. 
 
 
