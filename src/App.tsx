@@ -4,7 +4,7 @@ import './App.scss';
 import ErrorPage from './pages/Error';
 import RootLayout from './pages/RootLayout';
 import HomePage from './pages/Home';
-import FindCoachPage, { loaderFindCoach } from './pages/FindCoach';
+import FindCoachPage from './pages/FindCoach';
 import AuthPage, { checkAuthLoader } from './pages/Auth';
 import CoachDetailPage, { loadCoach } from './pages/CoachDetail';
 import BecomeCoachPage, { checkBecomeCoachLoader } from './pages/BecomeCoach';
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: 'coach', element: <FindCoachPage />, loader: loaderFindCoach },
+      { path: 'coach', element: <FindCoachPage /> },
       {
         path: 'coach/:id',
         element: <CoachDetailPage />,

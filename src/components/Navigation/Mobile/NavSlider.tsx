@@ -6,8 +6,8 @@ import { userActions } from '../../../store/slices/user';
 
 const NavSlider = (props: { isActive: boolean }) => {
   const location = useLocation().pathname;
-  const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
-  const isCoach = useSelector((state: any) => state.user.isCoach);
+  let isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
+  let isCoach = useSelector((state: any) => state.user.isCoach);
   const dispatch = useDispatch();
 
   const logoutHandler = () => {
@@ -46,7 +46,7 @@ const NavSlider = (props: { isActive: boolean }) => {
         >
           <Link to="/coach">Find your coach</Link>
         </li>
-        {isCoach === false && (
+        {isCoach !== true && (
           <li
             className={`${classes['slider-list__link']} ${
               location === '/join' ? classes.current : ''

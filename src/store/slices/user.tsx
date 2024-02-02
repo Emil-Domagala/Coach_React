@@ -33,6 +33,7 @@ const userSlice = createSlice({
       state.token = '';
       state.userEmail = '';
       state.isLoggedIn = false;
+      state.isCoach=false
     },
     autoLogin(state) {
       const token = localStorage.getItem('token');
