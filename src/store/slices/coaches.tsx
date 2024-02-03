@@ -33,7 +33,6 @@ const coachesSlice = createSlice({
     },
 
     filterCoaches(state, action) {
-
       if (action.payload.allCoaches.length === 0) {
         state.stateOfCoachFinding = 'No coaches yet';
         return;

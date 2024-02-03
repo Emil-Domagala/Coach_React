@@ -80,9 +80,11 @@ const useHTTPCoach = () => {
         if (!response.ok) {
           setError('Something went wrong!');
           setIsLoading(false);
-          return
-        }else{
+
+          return;
+        } else {
           setIsLoading(false);
+
           return response.json();
         }
       })
@@ -101,7 +103,7 @@ const useHTTPCoach = () => {
 
           dispatch(coachesActions.addCoaches(coach));
         }
-      })
+      });
   }, []);
 
   return {

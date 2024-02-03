@@ -4,7 +4,7 @@ import Button from '../UI/Button';
 
 const Error = () => {
   return (
-    <div className={classes.background}>
+
       <div className="container">
         <div className={classes.wrapper}>
           <div className={classes['img-wrapper']}>
@@ -20,7 +20,7 @@ const Error = () => {
           </div>
         </div>
       </div>
-    </div>
+
   );
 };
 

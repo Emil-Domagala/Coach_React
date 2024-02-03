@@ -5,7 +5,6 @@ import useAuth from '../../hooks/use-auth';
 import Input from '../UI/Input';
 import Form from '../UI/Form';
 import ErrorModal from '../UI/ErrorModal';
-import { useDispatch } from 'react-redux';
 const Login = () => {
   const [mode, setMode] = useState('LOGIN');
   const { signup, login, error } = useAuth();

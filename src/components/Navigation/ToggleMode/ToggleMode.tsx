@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect,useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import './ToggleMode.scss';
 
 const DarkMode = () => {
@@ -8,21 +7,23 @@ const DarkMode = () => {
 
   const setDarkMode = () => {
     body!.setAttribute('data-theme', 'dark');
+    localStorage.setItem('data-theme', 'dark');
   };
   const setLightMode = () => {
     body!.setAttribute('data-theme', 'light');
+    localStorage.setItem('data-theme', 'light');
   };
 
   useEffect(() => {
-    if (body!.getAttribute('data-theme') === 'dark') {
+    const dataTheme = localStorage.getItem('data-theme');
+    if (dataTheme === 'dark') {
       setIsChecked(true);
-    } else if (body!.getAttribute('data-theme') === 'light') {
-      setIsChecked(false);
+      setDarkMode();
     } else {
       setIsChecked(false);
       setLightMode();
     }
-  }, [body]);
+  }, []);
 
   const toogleTheme = () => {
     if (body!.getAttribute('data-theme') === 'light') {
