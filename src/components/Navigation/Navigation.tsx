@@ -4,6 +4,7 @@ import NavBar from './Deskop/NavBar';
 import { useState, useEffect } from 'react';
 import SmallNav from './SmallNav/SmallNav';
 
+
 const Navigation = (props: { mode: 'main' | 'small' }) => {
   const { mode } = props;
   const [windowWidth, setWindowWidth] = useState(0);

@@ -1,11 +1,12 @@
 import { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { userActions } from '../store/slices/user';
+import { coachesActions } from '../store/slices/coaches';
 
 const useHTTPCoach = () => {
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   const registerCoach = useCallback(
     async (
@@ -68,10 +69,46 @@ const useHTTPCoach = () => {
     [],
   );
 
- 
+  ///
+  const loadCoaches = useCallback(() => {
+    setIsLoading(true);
+    const response = fetch(
+      'https://react-coach-page-default-rtdb.europe-west1.firebasedatabase.app/coaches.json',
+    );
+    response
+      .then((response) => {
+        if (!response.ok) {
+          setError('Something went wrong!');
+          setIsLoading(false);
+
+          return;
+        } else {
+          setIsLoading(false);
+
+          return response.json();
+        }
+      })
+      .then((responseData) => {
+        for (const key in responseData) {
+          const coach = {
+            coachId: key,
+            coachName: responseData[key].coachName,
+            coachLastname: responseData[key].coachLastname,
+            coachPrice: responseData[key].coachPrice,
+            coachUrl: responseData[key].coachUrl,
+            coachDesc: responseData[key].coachDesc,
+            coachWays: responseData[key].waysValue,
+            coachSize: responseData[key].sizeValue,
+          };
+
+          dispatch(coachesActions.addCoaches(coach));
+        }
+      });
+  }, []);
 
   return {
     registerCoach: registerCoach,
+    loadCoaches: loadCoaches,
     isLoading,
     hasError: error,
   };

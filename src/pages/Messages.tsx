@@ -1,5 +1,3 @@
-import Navigation from '../components/Navigation/Navigation';
-import Footer from '../components/Footer/Footer';
 import MessagesWrapper from '../components/Messages/MessagesWrapper';
 import { Await, defer, redirect, useLoaderData, json } from 'react-router-dom';
 import { Suspense } from 'react';

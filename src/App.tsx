@@ -4,7 +4,7 @@ import './App.scss';
 import ErrorPage from './pages/Error';
 import RootLayout from './pages/RootLayout';
 import HomePage from './pages/Home';
-import FindCoachPage, { loaderFindCoach } from './pages/FindCoach';
+import FindCoachPage from './pages/FindCoach';
 import AuthPage, { checkAuthLoader } from './pages/Auth';
 import CoachDetailPage, { loadCoach } from './pages/CoachDetail';
 import BecomeCoachPage, { checkBecomeCoachLoader } from './pages/BecomeCoach';
@@ -13,28 +13,28 @@ import { useDispatch } from 'react-redux';
 import { userActions } from './store/slices/user';
 import { useEffect } from 'react';
 
-
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
-    errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
-      { path: 'coach', element: <FindCoachPage />, loader: loaderFindCoach },
+      { path: '/coach', element: <FindCoachPage /> },
       {
-        path: 'coach/:id',
+        path: '/coach/:id',
         element: <CoachDetailPage />,
         loader: loadCoach,
       },
       {
-        path: 'join',
+        path: '/join',
         element: <BecomeCoachPage />,
         loader: checkBecomeCoachLoader,
       },
-      { path: 'messages', element: <MessagesPage />, loader: loaderMessages },
+      { path: '/messages', element: <MessagesPage />, loader: loaderMessages },
     ],
   },
+  { path: '*', element: <ErrorPage /> },
+  { path: '/error', element: <ErrorPage /> },
   {
     path: 'auth',
     element: <AuthPage />,

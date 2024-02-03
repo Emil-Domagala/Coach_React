@@ -1,7 +1,6 @@
 import TopBarMobile from '../components/UI/TopBarMobile';
 import BecomeCoach from '../components/BecomeCoach/BecomeCoach';
 import { redirect } from 'react-router-dom';
-import { useLoaderData } from 'react-router-dom';
 
 
 const becomeCoachPage = () => {

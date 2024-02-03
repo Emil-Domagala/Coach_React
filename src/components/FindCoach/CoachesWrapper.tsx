@@ -2,11 +2,18 @@ import CoachCard from './CoachCard';
 import classes from './CoachesWrapper.module.scss';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import useHTTPCoach from '../../hooks/use-http-coach';
+import LoadingModal from '../UI/LoadingModal';
+import ErrorModal from '../UI/ErrorModal';
 
-const CoachesWrapper = (props: { onSaveCoaches: any }) => {
+const CoachesWrapper = () => {
+  const { loadCoaches, hasError, isLoading } = useHTTPCoach();
+
   useEffect(() => {
-    props.onSaveCoaches();
+    loadCoaches();
   }, []);
+
+
   const filtredCoaches = useSelector(
     (state: any) => state.coaches.filtredCoaches,
   );
@@ -14,7 +21,7 @@ const CoachesWrapper = (props: { onSaveCoaches: any }) => {
     (state: any) => state.coaches.stateOfCoachFinding,
   );
 
-  const display =
+  const display = 
     filtredCoaches.length === 0 ? (
       <div className={classes.info}>
         <p>{stateOfCoachFinding}</p>
@@ -39,7 +46,11 @@ const CoachesWrapper = (props: { onSaveCoaches: any }) => {
 
   return (
     <div className={`container`}>
-      <div className={classes.wrapper}>{display}</div>
+      <div className={classes.wrapper}>
+        {display}
+        {isLoading && <LoadingModal />}
+        {hasError && <ErrorModal />}
+      </div>
     </div>
   );
 };

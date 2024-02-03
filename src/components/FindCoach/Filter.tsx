@@ -31,7 +31,6 @@ const Filter = () => {
   const initialized = useSelector((state: any) => state.coaches.initialized);
   const dispatch = useDispatch();
 
-
   const changeValHandler = (e: any) => {
     setEntredVal(e.target.value);
   };
@@ -46,7 +45,8 @@ const Filter = () => {
     setShowList(false);
   };
 
-  const toggleListHandler = () => {
+  const toggleListHandler = (e: any) => {
+    e.preventDefault();
     setShowList(!showList);
   };
 
@@ -96,8 +96,11 @@ const Filter = () => {
           </div>
           <div className={classes['input-wrapper']}>
             <label htmlFor="">Company size search</label>
-            <div className={classes['select-container']}>
-              <select
+            <button
+              className={classes['select-button']}
+              onClick={toggleListHandler}
+            >
+              {/* <select
                 className={`${classes['select-box']} ${
                   selectedValue === 'Please Choose...' && classes['empty']
                 }`}
@@ -117,7 +120,17 @@ const Filter = () => {
                     {option.label}
                   </option>
                 ))}
-              </select>
+              </select> */}
+              {
+                <p
+                  className={`${
+                    selectedValue === 'Please Choose...' && classes['empty']
+                  }`}
+                >
+                  {selectedValue}
+                </p>
+              }
+
               <ul
                 className={`${classes['select-ul']} ${
                   showList ? classes['ul-display'] : ''
@@ -130,10 +143,10 @@ const Filter = () => {
                   </li>
                 ))}
               </ul>
-            </div>
+            </button>
           </div>
           <button className={classes.button} onClick={filterCoachesHandler}>
-            Search for coaches
+            <span>Search for coaches</span>
           </button>
         </form>
       </div>
