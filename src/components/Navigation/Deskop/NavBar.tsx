@@ -17,10 +17,10 @@ const NavBar = () => {
   };
 
   const Messages = isLoggedIn && isCoach && (
-    <Link to="/messages">
+    <Link to="/#/messages">
       <li
         className={`${classes['nav-list__link']} ${
-          location === '/messages' ? classes.current : ''
+          location === '/#/messages' ? classes.current : ''
         }`}
       >
         Messages

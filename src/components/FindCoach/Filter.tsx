@@ -9,6 +9,9 @@ const options = [
     value: 'empty',
     disabled: true,
   },
+   {
+    label: 'All Company sizes',
+    value: 'empty',},
   {
     label: 'Small Company',
     value: 'small',
@@ -138,7 +141,7 @@ const Filter = () => {
                 onClick={listHandler}
               >
                 {options.map((option) => (
-                  <li key={option.value} className={classes['select-li']}>
+                  <li key={option.label} className={classes['select-li']}>
                     {option.label}
                   </li>
                 ))}
