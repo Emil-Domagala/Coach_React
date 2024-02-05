@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import './App.scss';
 
 import ErrorPage from './pages/Error';
@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 import { userActions } from './store/slices/user';
 import { useEffect } from 'react';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <RootLayout />,
