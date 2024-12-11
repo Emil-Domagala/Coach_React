@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { json } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-
 const useAuth = () => {
   //   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
@@ -12,8 +11,10 @@ const useAuth = () => {
   const navigate = useNavigate();
   const login = useCallback(async (userEmail: string, userPassword: string) => {
     try {
+      // YOUR KEY HERE
+
       const response = await fetch(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDdoiMPQNY-af7SLM5Shnii9GRzpL5Ymks',
+        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=YOURKEYHERE',
         {
           method: 'POST',
           body: JSON.stringify({
@@ -34,7 +35,7 @@ const useAuth = () => {
       };
       const expiresIn = +data.expiresIn * 1000;
       const expirationDate = new Date().getTime() + expiresIn;
-      const expirationDateString = expirationDate.toString()
+      const expirationDateString = expirationDate.toString();
       localStorage.setItem('tokenExpiration', expirationDateString);
 
       checkIfIsCoach(data.localId);
