@@ -1,12 +1,12 @@
 import classes from './Footer.module.scss';
 import Logo from '../../assets/icons8-logo.svg';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { userActions } from '../../store/slices/user';
 
 const Footer = () => {
-  const isLoggedIn = localStorage.getItem('isLoggedIn');
-  const isCoach = localStorage.getItem('isCoach');
+  const isLoggedIn = useSelector((state: any) => state.user.isLoggedIn);
+  const isCoach = useSelector((state: any) => state.user.isCoach);
   const year = new Date().getFullYear();
   const dispatch = useDispatch();
 
@@ -24,7 +24,7 @@ const Footer = () => {
           <div className={classes.terms}>
             <p>
               Copyright &copy; {year} this is a copy of{' '}
-              <a href="https://hireacoach.com/#" target="_blank">
+              <a href="https://hireacoach.com/#" target="_blank" rel="noreferrer">
                 hire a coach
               </a>{' '}
               page
@@ -33,16 +33,15 @@ const Footer = () => {
         </div>
         <div className={classes.line}></div>
         <div className={classes.links}>
-          {isCoach === 'true' ? (
-            <Link to="/messages">Messages</Link>
-          ) : (
-            <Link to="/join">Become a Coach</Link>
-          )}
+          {isCoach === true ? <Link to="/messages">Messages</Link> : <Link to="/join">Become a Coach</Link>}
 
-          {isLoggedIn === 'true' ? (
-            <button className={classes['logout-btn']} onClick={logoutHandler}>
+          {isLoggedIn === true ? (
+            // <button className={classes['logout-btn']} onClick={logoutHandler}>
+            //   Logout
+            // </button>
+            <Link to="/" onClick={logoutHandler}>
               Logout
-            </button>
+            </Link>
           ) : (
             <Link to="/auth">Login</Link>
           )}
