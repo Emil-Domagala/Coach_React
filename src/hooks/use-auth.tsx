@@ -10,11 +10,11 @@ const useAuth = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const login = useCallback(async (userEmail: string, userPassword: string) => {
-    try {
-      // YOUR KEY HERE
+    let API_KEY = 'YOUR KEY HERE';
 
+    try {
       const response = await fetch(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=YOURKEYHERE',
+        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`,
         {
           method: 'POST',
           body: JSON.stringify({
@@ -42,41 +42,33 @@ const useAuth = () => {
       dispatch(userActions.login(userData));
       navigate('/');
     } catch (err: any) {
-      setError(
-        err.message || 'Failed to login. Please check your email and password!',
-      );
+      setError(err.message || 'Failed to login. Please check your email and password!');
     }
   }, []);
 
-  const signup = useCallback(
-    async (userEmail: string, userPassword: string) => {
-      try {
-        const response = await fetch(
-          'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDdoiMPQNY-af7SLM5Shnii9GRzpL5Ymks',
-          {
-            method: 'POST',
-            body: JSON.stringify({
-              email: userEmail,
-              password: userPassword,
-              returnSecureToken: true,
-            }),
-          },
-        );
+  const signup = useCallback(async (userEmail: string, userPassword: string) => {
+    try {
+      const response = await fetch(
+        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDdoiMPQNY-af7SLM5Shnii9GRzpL5Ymks',
+        {
+          method: 'POST',
+          body: JSON.stringify({
+            email: userEmail,
+            password: userPassword,
+            returnSecureToken: true,
+          }),
+        },
+      );
 
-        if (!response.ok) {
-          throw json({ message: 'Could not register.' });
-        }
-
-        login(userEmail, userPassword);
-      } catch (err: any) {
-        setError(
-          err.message ||
-            'Failed to create account. This email is already in use',
-        );
+      if (!response.ok) {
+        throw json({ message: 'Could not register.' });
       }
-    },
-    [],
-  );
+
+      login(userEmail, userPassword);
+    } catch (err: any) {
+      setError(err.message || 'Failed to create account. This email is already in use');
+    }
+  }, []);
 
   const checkIfIsCoach = useCallback(async (userId: string) => {
     const response = await fetch(

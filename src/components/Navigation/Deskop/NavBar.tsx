@@ -17,14 +17,8 @@ const NavBar = () => {
   };
 
   const Messages = isLoggedIn && isCoach && (
-    <Link to="/#/messages">
-      <li
-        className={`${classes['nav-list__link']} ${
-          location === '/#/messages' ? classes.current : ''
-        }`}
-      >
-        Messages
-      </li>
+    <Link to="/messages">
+      <li className={`${classes['nav-list__link']} ${location === '/messages' ? classes.current : ''}`}>Messages</li>
     </Link>
   );
 
@@ -45,30 +39,16 @@ const NavBar = () => {
               </div>
               <ul className={classes['nav-list']}>
                 <Link to="/">
-                  <li
-                    className={`${classes['nav-list__link']} ${
-                      location === '/' ? classes.current : ''
-                    }`}
-                  >
-                    Home
-                  </li>
+                  <li className={`${classes['nav-list__link']} ${location === '/' ? classes.current : ''}`}>Home</li>
                 </Link>
                 <Link to="/coach">
-                  <li
-                    className={`${classes['nav-list__link']} ${
-                      location === '/coach' ? classes.current : ''
-                    }`}
-                  >
+                  <li className={`${classes['nav-list__link']} ${location === '/coach' ? classes.current : ''}`}>
                     Find your coach
                   </li>
                 </Link>
                 {isCoach === false && (
                   <Link to="/join">
-                    <li
-                      className={`${classes['nav-list__link']} ${
-                        location === '/join' ? classes.current : ''
-                      }`}
-                    >
+                    <li className={`${classes['nav-list__link']} ${location === '/join' ? classes.current : ''}`}>
                       Become a coach
                     </li>
                   </Link>
@@ -76,22 +56,17 @@ const NavBar = () => {
                 {Messages}
                 {!isLoggedIn && (
                   <Link to="/auth">
-                    <li
-                      className={`${classes['nav-list__link']} ${
-                        location === '/auth' ? classes.current : ''
-                      }`}
-                    >
+                    <li className={`${classes['nav-list__link']} ${location === '/auth' ? classes.current : ''}`}>
                       Login
                     </li>
                   </Link>
                 )}
                 {isLoggedIn && (
-                  <li
-                    className={classes['nav-list__link']}
-                    onClick={logoutHandler}
-                  >
-                    Logout
-                  </li>
+                  <Link to="/">
+                    <li className={classes['nav-list__link']} onClick={logoutHandler}>
+                      Logout
+                    </li>
+                  </Link>
                 )}
               </ul>
             </div>
