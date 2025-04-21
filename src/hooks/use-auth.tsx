@@ -4,14 +4,13 @@ import { useDispatch } from 'react-redux';
 import { json } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
+const API_KEY = process.env.REACT_APP_API_KEY;
 const useAuth = () => {
   //   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const login = useCallback(async (userEmail: string, userPassword: string) => {
-    let API_KEY = 'YOUR KEY HERE';
-
     try {
       const response = await fetch(
         `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${API_KEY}`,
@@ -48,17 +47,14 @@ const useAuth = () => {
 
   const signup = useCallback(async (userEmail: string, userPassword: string) => {
     try {
-      const response = await fetch(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDdoiMPQNY-af7SLM5Shnii9GRzpL5Ymks',
-        {
-          method: 'POST',
-          body: JSON.stringify({
-            email: userEmail,
-            password: userPassword,
-            returnSecureToken: true,
-          }),
-        },
-      );
+      const response = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${API_KEY}`, {
+        method: 'POST',
+        body: JSON.stringify({
+          email: userEmail,
+          password: userPassword,
+          returnSecureToken: true,
+        }),
+      });
 
       if (!response.ok) {
         throw json({ message: 'Could not register.' });
